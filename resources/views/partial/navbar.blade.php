@@ -268,7 +268,7 @@
           <a href="#" class="nav-link"><i class="fas fa-users"></i><span>Employee Data</span></a>
         </li>
         <li class="dropdown">
-          <a href="#" class="nav-link has-dropdown"><i class="fas fa-columns"></i><span>Payroll Component</span></a>
+          <a href="#" class="nav-link has-dropdown"><i class="fas fa-wallet"></i><span>Payroll Component</span></a>
           <ul class="dropdown-menu">
             <li><a class="nav-link" href="#">Allowance</a></li>
             <li><a class="nav-link" href="#">Deduction</a></li>
