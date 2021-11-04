@@ -14,20 +14,10 @@
   
                 <div class="card-body">
                   <form method="POST">
-                    <div class="row">
-                      <div class="form-group col-6">
-                        <label for="frist_name">First Name</label>
-                        <input id="frist_name" type="text" class="form-control" name="frist_name" autofocus>
-                      </div>
-                      <div class="form-group col-6">
-                        <label for="last_name">Last Name</label>
-                        <input id="last_name" type="text" class="form-control" name="last_name">
-                      </div>
-                    </div>
-  
+
                     <div class="form-group">
-                      <label for="email">Email</label>
-                      <input id="email" type="email" class="form-control" name="email">
+                      <label for="name">Name</label>
+                      <input id="name" type="name" class="form-control" name="name">
                       <div class="invalid-feedback">
                       </div>
                     </div>
@@ -46,44 +36,19 @@
                         <input id="password2" type="password" class="form-control" name="password-confirm">
                       </div>
                     </div>
-  
-                    <div class="form-divider">
-                      Your Home
-                    </div>
-                    <div class="row">
-                      <div class="form-group col-6">
-                        <label>Country</label>
-                        <select class="form-control selectric">
-                          <option>Indonesia</option>
-                          <option>Palestine</option>
-                          <option>Syria</option>
-                          <option>Malaysia</option>
-                          <option>Thailand</option>
-                        </select>
+                        
+                    <!--TOLONG KOREKSI INI KEKNYA SALAH DAH NGATAU BENER ATO KAGA -->
+                    <div class="form-group">
+                        <label for="admincode">Admin Code</label>
+                        <input id="text" type="text" class="form-control" name="admincode">
+                        <div class="invalid-feedback">
+                        </div>
                       </div>
-                      <div class="form-group col-6">
-                        <label>Province</label>
-                        <select class="form-control selectric">
-                          <option>West Java</option>
-                          <option>East Java</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="form-group col-6">
-                        <label>City</label>
-                        <input type="text" class="form-control">
-                      </div>
-                      <div class="form-group col-6">
-                        <label>Postal Code</label>
-                        <input type="text" class="form-control">
-                      </div>
-                    </div>
   
                     <div class="form-group">
                       <div class="custom-control custom-checkbox">
                         <input type="checkbox" name="agree" class="custom-control-input" id="agree">
-                        <label class="custom-control-label" for="agree">I agree with the terms and conditions</label>
+                        <label class="custom-control-label" for="agree">Remember me</label>
                       </div>
                     </div>
   
@@ -94,6 +59,9 @@
                     </div>
                   </form>
                 </div>
+              </div>
+              <div class="mt-5 text-muted text-center">
+                Already have an account? <a href="/login">Log in</a>
               </div>
               <div class="simple-footer">
                 Copyright &copy; Stisla 2018

@@ -1,18 +1,18 @@
 @extends('layout.master')
 @section('title')
-    Deduction
+    Position
 @endsection
 @section('content')
 <div class="row">
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h4>Deduction Table</h4>
+          <h4>Position Table</h4>
         </div>
         <div class="card-body">
           <div class="form-group">
             <button type="submit" class="btn btn-primary btn-lg mb-3" tabindex="4">
-              Add Deduction
+              Add Position
             </button>
           <div class="table-responsive">
             <table class="table table-striped" id="table-1">
@@ -46,5 +46,4 @@
       </div>
     </div>
   </div>
-</div>
 @endsection
