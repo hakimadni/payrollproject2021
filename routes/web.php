@@ -37,3 +37,6 @@ Route::get('/position', function () {
 Route::get('/fs', function () {
     return view('fs');
 });
+Route::get('/register', function () {
+    return view('register');
+});
