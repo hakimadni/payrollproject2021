@@ -255,14 +255,14 @@
         <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
       <div class="sidebar-brand">
-        <a href="index.html">Kim Payroll App</a>
+        <a href="/">Kim Payroll App</a>
       </div>
       <div class="sidebar-brand sidebar-brand-sm">
         <a href="index.html">KPA</a>
       </div>
       <ul class="sidebar-menu">
         <li class="dropdown active">
-          <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Summary</span></a>
+          <a href="/" class="nav-link"><i class="fas fa-fire"></i><span>Summary</span></a>
         </li>
         <li class="dropdown">
           <a href="#" class="nav-link"><i class="fas fa-users"></i><span>Employee Data</span></a>
@@ -270,12 +270,12 @@
         <li class="dropdown">
           <a href="#" class="nav-link has-dropdown"><i class="fas fa-wallet"></i><span>Payroll Component</span></a>
           <ul class="dropdown-menu">
-            <li><a class="nav-link" href="#">Allowance</a></li>
-            <li><a class="nav-link" href="#">Deduction</a></li>
-            <li><a class="nav-link" href="#">Salary</a></li>
-            <li><a class="nav-link" href="#">Taxes</a></li>
-            <li><a class="nav-link" href="#">Position</a></li>
-            <li><a class="nav-link" href="#">Family Status</a></li>
+            <li><a class="nav-link" href="/allowance">Allowance</a></li>
+            <li><a class="nav-link" href="/deduction">Deduction</a></li>
+            <li><a class="nav-link" href="/salary">Salary</a></li>
+            <li><a class="nav-link" href="/taxes">Taxes</a></li>
+            <li><a class="nav-link" href="/position">Position</a></li>
+            <li><a class="nav-link" href="/fs">Family Status</a></li>
           </ul>
         </li>
       
