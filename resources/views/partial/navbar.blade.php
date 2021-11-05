@@ -258,7 +258,7 @@
         <a href="/">Kim Payroll App</a>
       </div>
       <div class="sidebar-brand sidebar-brand-sm">
-        <a href="index.html">KPA</a>
+        <img src="{{asset('img/Group 15.png')}}" alt="logo" height="40px" width="40px" class="shadow-dark rounded-circle">
       </div>
       <ul class="sidebar-menu">
         <li class="dropdown active">
