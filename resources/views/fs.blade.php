@@ -35,7 +35,7 @@
                     Rp. 54.000.000
                   </td>
                   <td>
-                    Mamang Kesbor, KimKim, Putra
+                    Mamang Kesbor, KimKim
                   </td>
                 </tr>
                 <tr>
