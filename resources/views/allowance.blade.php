@@ -11,9 +11,9 @@
         </div>
         <div class="card-body">
           <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-lg mb-3" tabindex="4">
+            <a href="/add-allowance" class="btn btn-primary btn-lg mb-3" tabindex="4">
               Add Allowance
-            </button>
+            </a>
           <div class="table-responsive">
             <table class="table table-striped" id="table-1">
               <thead>                                 

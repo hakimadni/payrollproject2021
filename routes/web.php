@@ -41,10 +41,10 @@ Route::get('/register', function () {
     return view('register');
 });
 /*----------------add------------------- */
-Route::get('/add-employ', function () {
+Route::get('/add-employee', function () {
     return view('add-employee');
 });
-Route::get('/add-allow', function () {
+Route::get('/add-allowance', function () {
     return view('add-allowance');
 });
 Route::get('/add-deduction', function () {
