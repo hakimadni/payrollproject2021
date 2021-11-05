@@ -46,13 +46,6 @@
                       </div>
   
                     <div class="form-group">
-                      <div class="custom-control custom-checkbox">
-                        <input type="checkbox" name="agree" class="custom-control-input" id="agree">
-                        <label class="custom-control-label" for="agree">Remember me</label>
-                      </div>
-                    </div>
-  
-                    <div class="form-group">
                       <button type="submit" class="btn btn-primary btn-lg btn-block">
                         Register
                       </button>
