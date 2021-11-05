@@ -40,3 +40,22 @@ Route::get('/fs', function () {
 Route::get('/register', function () {
     return view('register');
 });
+/*----------------add------------------- */
+Route::get('/add-employ', function () {
+    return view('add-employee');
+});
+Route::get('/add-allow', function () {
+    return view('add-allowance');
+});
+Route::get('/add-deduction', function () {
+    return view('add-deduction');
+});
+Route::get('/add-position', function () {
+    return view('add-position');
+});
+Route::get('/add-fs', function () {
+    return view('add-fs');
+});
+Route::get('/admin-menu', function () {
+    return view('admin-menu');
+});
