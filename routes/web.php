@@ -19,9 +19,7 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('login');
 });
-Route::get('/allowance', function () {
-    return view('allowance');
-});
+
 Route::get('/deduction', function () {
     return view('deduction');
 });
@@ -44,9 +42,6 @@ Route::get('/register', function () {
 Route::get('/add-employee', function () {
     return view('add-employee');
 });
-Route::get('/add-allowance', function () {
-    return view('add-allowance');
-});
 Route::get('/add-deduction', function () {
     return view('add-deduction');
 });
@@ -59,3 +54,8 @@ Route::get('/add-fs', function () {
 Route::get('/admin-menu', function () {
     return view('admin-menu');
 });
+
+// Controller 
+Route::resources([
+    'allowance' => AllowanceController::class
+]);

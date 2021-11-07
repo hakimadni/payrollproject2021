@@ -11,7 +11,7 @@
         </div>
         <div class="card-body">
           <div class="form-group">
-            <a href="/add-allowance" class="btn btn-primary btn-lg mb-3" tabindex="4">
+            <a href="/allowance/create" class="btn btn-primary btn-lg mb-3" tabindex="4">
               Add Allowance
             </a>
           <div class="table-responsive">
@@ -39,6 +39,18 @@
                     Mamang Kesbor, KimKim, Putra
                   </td>
                 </tr>
+                @forelse ($allowance as $key=>$value)
+                    <tr>
+                        <td class="text-center">{{$value->id}}</td>
+                        <td>{{$value->nama}}</td>
+                        <td>{{$value->value}}</td>
+                        <td></td>
+                    </tr>
+                @empty
+                    <tr colspan="3">
+                        <td>No data</td>
+                    </tr>  
+                @endforelse
               </tbody>
             </table>
           </div>

@@ -262,13 +262,22 @@
       </div>
       <ul class="sidebar-menu">
         <li class="dropdown active">
-          <a href="/" class="nav-link"><i class="fas fa-fire"></i><span>Summary</span></a>
+          <a href="/" class="nav-link">
+            <i class="fas fa-fire"></i>
+            <span>Summary</span>
+          </a>
         </li>
         <li class="dropdown">
-          <a href="#" class="nav-link"><i class="fas fa-users"></i><span>Employee Data</span></a>
+          <a href="#" class="nav-link">
+            <i class="fas fa-users"></i>
+            <span>Employee Data</span>
+          </a>
         </li>
         <li class="dropdown">
-          <a href="#" class="nav-link has-dropdown"><i class="fas fa-wallet"></i><span>Payroll Component</span></a>
+          <a href="#" class="nav-link has-dropdown">
+            <i class="fas fa-wallet"></i>
+            <span>Payroll Component</span>
+          </a>
           <ul class="dropdown-menu">
             <li><a class="nav-link" href="/allowance">Allowance</a></li>
             <li><a class="nav-link" href="/deduction">Deduction</a></li>
