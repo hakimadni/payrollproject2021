@@ -73,5 +73,31 @@
     </div>
   </div>
 
+  <div class="card">
+    <div class="card-header justify-content-center"><h1>Admin Code</h1></div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <div class="card-header justify-content-center"><h3>Code</h3></div>
+          <div class="container d-flex justify-content-center">
+            <h1 class="mb-5">5234</h1>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label>New Admin Code</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Re-input Admin Code</label>
+            <input type="text" class="form-control">
+          </div>
+          <a href="#" class="btn btn-danger">Change</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 
 @endsection

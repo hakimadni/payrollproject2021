@@ -289,7 +289,7 @@
         </li>
       
           <div class="p-3 hide-sidebar-mini">
-            <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split align-bottom">
+            <a href="/admin-menu" class="btn btn-primary btn-lg btn-block btn-icon-split align-bottom">
               <i class="fas fa-rocket"></i> Admin Menu
             </a>
           </div>
