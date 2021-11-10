@@ -57,5 +57,6 @@ Route::get('/admin-menu', function () {
 
 // Controller 
 Route::resources([
-    'allowance' => AllowanceController::class
+    'allowance' => AllowanceController::class, 'deduction' => DeductionController::class,
+    'salary' => DeductionController::class, 'position' => DeductionController::class
 ]);
