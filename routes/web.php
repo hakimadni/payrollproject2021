@@ -14,48 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('summary');
-});
-Route::get('/login', function () {
-    return view('login');
+    return view('welcome');
 });
 
-Route::get('/deduction', function () {
-    return view('deduction');
-});
-Route::get('/salary', function () {
-    return view('salary');
-});
-Route::get('/taxes', function () {
-    return view('taxes');
-});
-Route::get('/position', function () {
-    return view('position');
-});
-Route::get('/fs', function () {
-    return view('fs');
-});
-Route::get('/register', function () {
-    return view('register');
-});
-/*----------------add------------------- */
-Route::get('/add-employee', function () {
-    return view('add-employee');
-});
-Route::get('/add-deduction', function () {
-    return view('add-deduction');
-});
-Route::get('/add-position', function () {
-    return view('add-position');
-});
-Route::get('/add-fs', function () {
-    return view('add-fs');
-});
-Route::get('/admin-menu', function () {
-    return view('admin-menu');
-});
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-// Controller 
-Route::resources([
-    'allowance' => AllowanceController::class
-]);
+require __DIR__.'/auth.php';
