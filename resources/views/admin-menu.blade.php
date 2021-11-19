@@ -27,9 +27,9 @@
                 <td>2017-01-09</td>
                 <td><div class="badge badge-success">Active</div></td>
                 <td>
-                    <a href="#" class="btn btn-secondary btn-success">Grant</a>
-                    <a href="#" class="btn btn-secondary btn-warning">Retract</a>
-                    <a href="#" class="btn btn-secondary btn-danger">Remove</a>
+                    <a href="#" class="btn btn-secondary btn-success btn-custom-admin-table">Grant</a>
+                    <a href="#" class="btn btn-secondary btn-warning btn-custom-admin-table">Retract</a>
+                    <a href="#" class="btn btn-secondary btn-danger btn-custom-admin-table">Remove</a>
                 </td>
                 
               </tr>
@@ -39,9 +39,9 @@
                 <td>2017-01-09</td>
                 <td><div class="badge badge-success">Active</div></td>
                 <td>                    
-                    <a href="#" class="btn btn-secondary btn-success">Grant</a>
-                    <a href="#" class="btn btn-secondary btn-warning">Retract</a>
-                    <a href="#" class="btn btn-secondary btn-danger">Remove</a>
+                    <a href="#" class="btn btn-secondary btn-success btn-custom-admin-table">Grant</a>
+                    <a href="#" class="btn btn-secondary btn-warning btn-custom-admin-table">Retract</a>
+                    <a href="#" class="btn btn-secondary btn-danger btn-custom-admin-table">Remove</a>
                 </td>
               </tr>
               <tr>
@@ -50,9 +50,9 @@
                 <td>2017-01-11</td>
                 <td><div class="badge badge-danger">Not Active</div></td>
                 <td>
-                    <a href="#" class="btn btn-secondary btn-success">Grant</a>
-                    <a href="#" class="btn btn-secondary btn-warning">Retract</a>
-                    <a href="#" class="btn btn-secondary btn-danger">Remove</a>
+                    <a href="#" class="btn btn-secondary btn-success btn-custom-admin-table">Grant</a>
+                    <a href="#" class="btn btn-secondary btn-warning btn-custom-admin-table">Retract</a>
+                    <a href="#" class="btn btn-secondary btn-danger btn-custom-admin-table">Remove</a>
                 </td>
               </tr>
               <tr>
@@ -61,9 +61,9 @@
                 <td>2017-01-11</td>
                 <td><div class="badge badge-success">Active</div></td>
                 <td>                    
-                    <a href="#" class="btn btn-secondary btn-success">Grant</a>
-                    <a href="#" class="btn btn-secondary btn-warning">Retract</a>
-                    <a href="#" class="btn btn-secondary btn-danger">Remove</a>
+                    <a href="#" class="btn btn-secondary btn-success btn-custom-admin-table">Grant</a>
+                    <a href="#" class="btn btn-secondary btn-warning btn-custom-admin-table">Retract</a>
+                    <a href="#" class="btn btn-secondary btn-danger btn-custom-admin-table">Remove</a>
                 </td>
               </tr>
             </table>
@@ -72,6 +72,32 @@
       </div>
     </div>
   </div>
+
+  <div class="card">
+    <div class="card-header justify-content-center"><h1>Admin Code</h1></div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <div class="card-header justify-content-center"><h3>Code</h3></div>
+          <div class="container d-flex justify-content-center">
+            <h1 class="mb-5">5234</h1>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label>New Admin Code</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Re-input Admin Code</label>
+            <input type="text" class="form-control">
+          </div>
+          <a href="#" class="btn btn-danger">Change</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 
 @endsection

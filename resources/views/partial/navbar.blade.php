@@ -289,11 +289,23 @@
         </li>
       
           <div class="p-3 hide-sidebar-mini">
-            <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split align-bottom">
+            <a href="/admin-menu" class="btn btn-primary btn-lg btn-block btn-icon-split align-bottom">
               <i class="fas fa-rocket"></i> Admin Menu
             </a>
           </div>
-          
+
+          <form method="POST" action="{{ route('logout') }}">
+            @csrf
+
+            <div class="p-3 hide-sidebar-mini">
+              <a href="route('logout')"
+              onclick="event.preventDefault();
+                          this.closest('form').submit();" class="btn btn-primary btn-lg btn-block btn-icon-split align-bottom">
+                <i class="fas fa-rocket"></i>Log out
+              </a>
+            </div>
+          </form>
+
         </div>
       </div>
       

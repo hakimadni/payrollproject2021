@@ -43,15 +43,11 @@
 <script src="{{asset('js/stisla.js')}}"></script>
 
 <!-- JS Libraies -->
-<script src="{{asset('modules/simple-weather/jquery.simpleWeather.min.js')}}"></script>
-<script src="{{asset('modules/chart.min.js')}}"></script>
-<script src="{{asset('modules/jqvmap/dist/jquery.vmap.min.js')}}"></script>
-<script src="{{asset('modules/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
-<script src="{{asset('modules/summernote/summernote-bs4.js')}}"></script>
-<script src="{{asset('modules/chocolat/dist/js/jquery.chocolat.min.js')}}"></script>
+<script src="{{asset('modules/jquery-pwstrength/jquery.pwstrength.min.js')}}"></script>
+<script src="{{asset('modules/jquery-selectric/jquery.selectric.min.js')}}"></script>
 
 <!-- Page Specific JS File -->
-<script src="{{asset('js/page/index-0.js')}}"></script>
+<script src="{{asset('js/page/auth-register.js')}}"></script>
 
 <!-- Template JS File -->
 <script src="{{asset('js/scripts.js')}}"></script>

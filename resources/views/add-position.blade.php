@@ -9,10 +9,11 @@
             <h4>Add Position</h4></div>
 
           <div class="card-body">
-            <form method="POST" action="#" class="needs-validation" novalidate="">
+            <form method="POST" action="/position" class="needs-validation" novalidate="">
+              @csrf
               <div class="form-group">
                 <label for="name">Position Name</label>
-                <input id="name" type="text" class="form-control" name="name" tabindex="1" required autofocus>
+                <input id="name" type="text" class="form-control" name="nama" tabindex="1" required autofocus>
                 <div class="invalid-feedback">
                   Please fill in your position name
                 </div>

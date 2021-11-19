@@ -1538,6 +1538,10 @@ h6 .badge {
     margin: 0 8px 10px 0;
 }
 
+.btn-custom-admin-table{
+    width: 72px !important;
+}
+
 .btn:focus {
     box-shadow: none !important;
     outline: none;

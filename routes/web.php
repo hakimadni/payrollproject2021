@@ -14,11 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('summary');
 })->middleware(['auth'])->name('dashboard');
 
+route::group(['middleware' => ['auth']], function () {
+    Route::resources([
+        'allowance' => AllowanceController::class, 'deduction' => DeductionController::class,
+        'salary' => DeductionController::class, 'position' => DeductionController::class
+    ]);
+});
+
+Auth::routes();
+
 require __DIR__.'/auth.php';
+
+// Controller 
+
