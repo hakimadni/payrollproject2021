@@ -14,7 +14,11 @@ class PositionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+<<<<<<< HEAD
     {
+=======
+    {  
+>>>>>>> a5002f9e4d37becf8b39d20f6250ec1fcc92b930
         $position = Position::all();
         return view('position', compact('position'));
     }

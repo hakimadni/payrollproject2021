@@ -26,6 +26,31 @@ route::group(['middleware' => ['auth']], function () {
 
 Auth::routes();
 
+//ini gua cuma buat preview kim, biar muncul
+Route::get('/deduction', function () {
+    return view('deduction');
+});
+
+Route::get('/employee-data', function () {
+    return view('employee-data');
+});
+
+Route::get('/add-employee', function () {
+    return view('add-employee');
+});
+
+Route::get('/deduction', function () {
+    return view('deduction');
+});
+
+Route::get('/position', function () {
+    return view('position');
+});
+
+Route::get('/fs', function () {
+    return view('fs');
+});
+
 require __DIR__.'/auth.php';
 
 // Controller 
