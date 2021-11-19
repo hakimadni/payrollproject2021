@@ -1,4 +1,7 @@
-@extends('layout.masterauth')
+@extends('layout.master')
+@section('title')
+    Add Deduction
+@endsection
 @section('content')
 <div class="container mt-5">
     <div class="row">

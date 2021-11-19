@@ -11,7 +11,7 @@
         </div>
         <div class="card-body">
           <div class="form-group">
-            <a href="/add-employee" class="btn btn-primary btn-lg mb-3" tabindex="4">
+            <a href="/employee/create" class="btn btn-primary btn-lg mb-3" tabindex="4">
               Add Employee
             </a>
           <div class="table-responsive">
@@ -22,8 +22,8 @@
                     ID
                   </th>
                   <th class="text-center">No.KTP</th>
-                  <th class="text-center">Nama</th>
-                  <th class="text-center">Jabatan</th>
+                  <th>Nama</th>
+                  <th>Jabatan</th>
                   <th class="text-center">NPWP</th>
                   <th class="text-center">Family Status</th>
                   <th class="text-center">Action</th>
@@ -34,13 +34,13 @@
                   <td class="text-center">
                     1
                   </td>
-                  <td>0085525225</td>
+                  <td class="text-center">0085525225</td>
                   <td>Bu Karti</td>
                   <td>Staff</td>
-                  <td>8552-8585-858</td>
-                  <td>TKP01</td>
+                  <td class="text-center">8552-8585-858</td>
+                  <td class="text-center">TKP01</td>
                   <td class="text-center">                    
-                    <a href="#" class="btn btn-secondary btn-warning">Change</a>
+                    <a href="#" class="btn btn-secondary btn-warning">Update</a>
                     <a href="#" class="btn btn-secondary btn-danger">Remove</a>
                   </td>
                 </tr>

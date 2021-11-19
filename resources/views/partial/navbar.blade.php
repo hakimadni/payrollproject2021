@@ -11,6 +11,7 @@
 
   <!-- CSS Libraries -->
   <link rel="stylesheet" href="{{asset('modules/jqvmap/dist/jqvmap.min.css')}}">
+  <link rel="stylesheet" href="{{asset('modules/select2/dist/css/select2.min.css')}}">
   <link rel="stylesheet" href="{{asset('modules/weather-icon/css/weather-icons.min.css')}}">
   <link rel="stylesheet" href="{{asset('modules/weather-icon/css/weather-icons-wind.min.css')}}">
   <link rel="stylesheet" href="{{asset('modules/summernote/summernote-bs4.css')}}">

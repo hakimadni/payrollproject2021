@@ -33,9 +33,14 @@ Auth::routes();
 
 
 Route::get('/fs', function () {
-    return view('fs');
+    return view('fs/index');
 });
-
+Route::get('/employee', function () {
+    return view('employee/index');
+});
+Route::get('/employee/create', function () {
+    return view('employee/create');
+});
 require __DIR__.'/auth.php';
 
 // Controller 

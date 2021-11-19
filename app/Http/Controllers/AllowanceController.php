@@ -16,7 +16,7 @@ class AllowanceController extends Controller
     public function index()
     {  
         $allowance = Allowance::all();
-        return view('allowance', compact('allowance'));
+        return view('allowance/index', compact('allowance'));
     }
 
     /**
@@ -26,7 +26,7 @@ class AllowanceController extends Controller
      */
     public function create()
     {
-        return view('add-allowance');
+        return view('allowance/create');
     }
 
     /**

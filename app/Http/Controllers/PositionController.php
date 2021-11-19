@@ -16,7 +16,7 @@ class PositionController extends Controller
     public function index()
     {  
         $position = Position::all();
-        return view('position', compact('position'));
+        return view('position/index', compact('position'));
     }
 
     /**
@@ -26,7 +26,7 @@ class PositionController extends Controller
      */
     public function create()
     {
-        return view('add-position');
+        return view('position/create');
     }
 
     /**

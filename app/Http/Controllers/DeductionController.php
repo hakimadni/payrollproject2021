@@ -16,7 +16,7 @@ class DeductionController extends Controller
     public function index()
     {
         $deduction = Deduction::all();
-        return view('deduction', compact('deduction'));
+        return view('deduction/index', compact('deduction'));
     }
 
     /**
@@ -26,7 +26,7 @@ class DeductionController extends Controller
      */
     public function create()
     {
-        return view('add-deduction');
+        return view('deduction/create');
     }
 
     /**
