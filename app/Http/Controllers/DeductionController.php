@@ -14,11 +14,7 @@ class DeductionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-<<<<<<< HEAD
     {
-=======
-    {  
->>>>>>> a5002f9e4d37becf8b39d20f6250ec1fcc92b930
         $deduction = Deduction::all();
         return view('deduction', compact('deduction'));
     }
@@ -51,11 +47,7 @@ class DeductionController extends Controller
             'value' => $request->value
     	]);
  
-<<<<<<< HEAD
     	return redirect('/deduction');
-=======
-    	return redirect('/dedcution');
->>>>>>> a5002f9e4d37becf8b39d20f6250ec1fcc92b930
     }
 
     /**
