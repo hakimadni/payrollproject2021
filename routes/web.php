@@ -32,11 +32,6 @@ Auth::routes();
 
 //ini gua cuma buat preview kim, biar muncul
 
-
-
-Route::get('/fs', function () {
-    return view('fs/index');
-});
 Route::get('/employee', function () {
     return view('employee/index');
 });
