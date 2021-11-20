@@ -50,7 +50,7 @@
                       <option value="1">One</option>
                       <option value="2">Two</option>
                       <option value="3">Three</option>
-                      {{-- @foreach ($position as $item)
+                      {{-- @foreach ($FamilyStatus as $item)
                             <option value="{{$item->id}}">{{$item->nama}}</option>
                       @endforeach --}}
                     </select>
@@ -59,7 +59,7 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputEmail4">NPWP</label>
-                  <input type="text" class="form-control" id="-" placeholder="Input NPWP">
+                  <input type="number" class="form-control" name="npwp" id="-" placeholder="Input NPWP">
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="gridCheck">
                     <label class="form-check-label" for="gridCheck">

@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use App\Models\Allowance;
+use App\Models\FamilyStatus;
 
-class AllowanceController extends Controller
+class FamilyStatusController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class AllowanceController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {  
-        $allowance = Allowance::all();
-        return view('allowance/index', compact('allowance'));
+    {
+        $FamilyStatus = FamilyStatus::all();
+        return view('family_status/index', compact('FamilyStatus'));
     }
 
     /**
@@ -26,7 +26,7 @@ class AllowanceController extends Controller
      */
     public function create()
     {
-        return view('allowance/create');
+        return view('family_status/create');
     }
 
     /**
@@ -39,15 +39,17 @@ class AllowanceController extends Controller
     {
         $this->validate($request,[
     		'nama' => 'required',
+            'deskripsi' => 'required',
             'value' => 'required'
     	]);
  
-        Allowance::create([
+        FamilyStatus::create([
     		'nama' => $request->nama,
+            'deskripsi' => $request->deskripsi,
             'value' => $request->value
     	]);
  
-    	return redirect('/allowance');
+    	return redirect('/family_status');
     }
 
     /**
@@ -69,8 +71,7 @@ class AllowanceController extends Controller
      */
     public function edit($id)
     {
-        $allowance = Allowance::find($id);
-        return view('allowance/edit', compact('allowance'));
+        //
     }
 
     /**
@@ -82,17 +83,7 @@ class AllowanceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'nama' => 'required',
-    		'value' => 'required'
-        ]);
-
-        $allowance = [
-            'nama' => $request->nama,
-            'value' => $request->value,
-        ];
-        Allowance::whereId($id)->update($allowance);
-        return redirect('/allowance');
+        //
     }
 
     /**
@@ -103,6 +94,8 @@ class AllowanceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $FamilyStatus = FamilyStatus::findorfail($id);
+        $FamilyStatus->delete();
+        return redirect('/family_status');
     }
 }

@@ -24,6 +24,7 @@
                   <th>Name</th>
                   <th>Value</th>
                   <th>Members</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>                                 
@@ -38,6 +39,9 @@
                   <td>
                     Mamang Kesbor, KimKim, Putra
                   </td>
+                  <td>
+                    <a href="#" class="btn btn-primary">Edit</a>
+                  </td>
                 </tr>
                 @forelse ($allowance as $key=>$value)
                     <tr>
@@ -45,6 +49,9 @@
                         <td>{{$value->nama}}</td>
                         <td>{{$value->value}}</td>
                         <td></td>
+                        <td>
+                          <a href="/allowance/{{$value->id}}/edit" class="btn btn-primary">Edit</a>
+                        </td>
                     </tr>
                 @empty
                     <tr colspan="3">

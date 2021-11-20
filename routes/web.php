@@ -13,12 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/dashboard', function () {
     return view('summary');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth']);
 
 route::group(['middleware' => ['auth']], function () {
     Route::resources([
+        'employee' => EmployeeController::class,
+        'family_status' => FamilyStatusController::class,
         'allowance' => AllowanceController::class,
         'deduction' => DeductionController::class,
         'salary' => DeductionController::class,

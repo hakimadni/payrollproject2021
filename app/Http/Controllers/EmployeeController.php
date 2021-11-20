@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+use DB;
+use App\Models\Employee;
+
 
 use Illuminate\Http\Request;
-use DB;
-use App\Models\Allowance;
 
-class AllowanceController extends Controller
+class EmployeeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,9 @@ class AllowanceController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {  
-        $allowance = Allowance::all();
-        return view('allowance/index', compact('allowance'));
+    {
+        $employee = Employee::all();
+        return view('employee/index', compact('employee'));
     }
 
     /**
@@ -26,7 +27,7 @@ class AllowanceController extends Controller
      */
     public function create()
     {
-        return view('allowance/create');
+        //
     }
 
     /**
@@ -37,17 +38,7 @@ class AllowanceController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-    		'nama' => 'required',
-            'value' => 'required'
-    	]);
- 
-        Allowance::create([
-    		'nama' => $request->nama,
-            'value' => $request->value
-    	]);
- 
-    	return redirect('/allowance');
+        //
     }
 
     /**
@@ -69,8 +60,7 @@ class AllowanceController extends Controller
      */
     public function edit($id)
     {
-        $allowance = Allowance::find($id);
-        return view('allowance/edit', compact('allowance'));
+        //
     }
 
     /**
@@ -82,17 +72,7 @@ class AllowanceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'nama' => 'required',
-    		'value' => 'required'
-        ]);
-
-        $allowance = [
-            'nama' => $request->nama,
-            'value' => $request->value,
-        ];
-        Allowance::whereId($id)->update($allowance);
-        return redirect('/allowance');
+        //
     }
 
     /**

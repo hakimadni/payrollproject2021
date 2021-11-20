@@ -24,6 +24,7 @@
                   <th>Name</th>
                   <th>Value</th>
                   <th>Members</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>                                 
