@@ -60,7 +60,8 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $employee = employee::find($id);
+        return view('employee/edit', compact('employee'));
     }
 
     /**
@@ -72,7 +73,17 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+    		'value' => 'required'
+        ]);
+
+        $employee = [
+            'nama' => $request->nama,
+            'value' => $request->value,
+        ];
+        Employee::whereId($id)->update($employee);
+        return redirect('/employee');
     }
 
     /**

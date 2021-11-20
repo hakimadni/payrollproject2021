@@ -23,8 +23,8 @@ route::group(['middleware' => ['auth']], function () {
         'family_status' => FamilyStatusController::class,
         'allowance' => AllowanceController::class,
         'deduction' => DeductionController::class,
-        'salary' => DeductionController::class,
-        'position' => DeductionController::class
+        'salary' => SalaryController::class,
+        'position' => PositionController::class
     ]);
 });
 

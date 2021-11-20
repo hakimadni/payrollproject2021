@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-Add Allowance
+  Edit Allowance
 @endsection
 @section('content')
 <div class="container mt-5">
@@ -9,7 +9,7 @@ Add Allowance
         <a href="/allowance" class="btn btn-danger mb-5 pl-4 pr-4">Back</a>
         <div class="card card-primary">
           <div class="card-header">
-            <h4>Add Allowance</h4></div>
+            <h4>Edit Allowance</h4></div>
 
           <div class="card-body">
             <form action="/allowance/{{$allowance->id}}" method="POST">

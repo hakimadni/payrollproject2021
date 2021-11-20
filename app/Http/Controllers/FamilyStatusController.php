@@ -71,7 +71,8 @@ class FamilyStatusController extends Controller
      */
     public function edit($id)
     {
-        //
+        $FamilyStatus = FamilyStatus::find($id);
+        return view('family_status/edit', compact('family_status'));
     }
 
     /**
@@ -83,7 +84,17 @@ class FamilyStatusController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+    		'value' => 'required'
+        ]);
+
+        $FamilyStatus = [
+            'nama' => $request->nama,
+            'value' => $request->value,
+        ];
+        FamilyStatus::whereId($id)->update($FamilyStatus);
+        return redirect('/family_status');
     }
 
     /**

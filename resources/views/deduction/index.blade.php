@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-    Deduction
+  Deduction
 @endsection
 @section('content')
 <div class="row">
@@ -24,6 +24,7 @@
                   <th>Name</th>
                   <th>Value</th>
                   <th>Members</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>                                 
@@ -38,13 +39,24 @@
                   <td>
                     Mamang Kesbor, KimKim, Putra
                   </td>
+                  <td>
+                    <a href="#" class="btn btn-primary">Edit</a>
+                  </td>
                 </tr>
                 @forelse ($deduction as $key=>$value)
                     <tr>
                         <td class="text-center">{{$value->id}}</td>
                         <td>{{$value->nama}}</td>
-                        <td>{{$value->value}}</td>
+                        <td>Rp. {{$value->value}}</td>
                         <td></td>
+                        <td>
+                          <a href="/deduction/{{$value->id}}/edit" class="btn btn-warning m-2">Edit</a>
+                          <form action="/deduction/{{$value->id}}" method="post">
+                            @csrf
+                            @method('delete')
+                            <input type="submit" value="Delete" class="btn btn-danger">
+                          </form>
+                        </td>
                     </tr>
                 @empty
                     <tr colspan="3">
@@ -58,5 +70,4 @@
       </div>
     </div>
   </div>
-</div>
 @endsection

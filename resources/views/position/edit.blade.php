@@ -1,4 +1,7 @@
-@extends('layout.masterauth')
+@extends('layout.master')
+@section('title')
+  Edit Position
+@endsection
 @section('content')
 <div class="container mt-5">
     <div class="row">
@@ -6,21 +9,22 @@
         <a href="/position" class="btn btn-danger mb-5 pl-4 pr-4">Back</a>
         <div class="card card-primary">
           <div class="card-header">
-            <h4>Add Position</h4></div>
+            <h4>Edit Position</h4></div>
 
           <div class="card-body">
-            <form method="POST" action="/position" class="needs-validation" novalidate="">
+            <form method="POST" action="/position/{{$position->id}}" class="needs-validation" novalidate="">
               @csrf
+              @method('put')
               <div class="form-group">
                 <label for="name">Position Name</label>
-                <input id="name" type="text" class="form-control" name="nama" tabindex="1" required autofocus value="">
+                <input id="name" type="text" class="form-control" name="nama" tabindex="1" value="{{$position->nama}}" required autofocus value="">
                 <div class="invalid-feedback">
                   Please fill in your position name
                 </div>
               </div>
               <div class="form-group">
                 <label for="value">Position Value</label>
-                <input id="value" type="number" class="form-control" name="value" tabindex="1" required autofocus>
+                <input id="value" type="number" class="form-control" name="value" tabindex="1" value="{{$position->value}}" required autofocus>
                 <div class="invalid-feedback">
                   Please fill in your position value
                 </div>

@@ -50,7 +50,12 @@
                         <td>{{$value->value}}</td>
                         <td></td>
                         <td>
-                          <a href="/allowance/{{$value->id}}/edit" class="btn btn-primary">Edit</a>
+                          <a href="/allowance/{{$value->id}}/edit" class="btn btn-warning m-2">Edit</a>
+                          <form action="/allowance/{{$value->id}}" method="post">
+                            @csrf
+                            @method('delete')
+                            <input type="submit" value="Delete" class="btn btn-danger">
+                          </form>
                         </td>
                     </tr>
                 @empty

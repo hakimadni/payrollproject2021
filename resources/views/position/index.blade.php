@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-    Position
+  Position
 @endsection
 @section('content')
 <div class="row">
@@ -24,7 +24,7 @@
                   <th>Name</th>
                   <th>Value</th>
                   <th>Members</th>
-                  <th>Action</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>                                 
@@ -39,6 +39,9 @@
                   <td>
                     Mamang Kesbor, KimKim, Putra
                   </td>
+                  <td>
+                    <a href="#" class="btn btn-primary">Edit</a>
+                  </td>
                 </tr>
                 @forelse ($position as $key=>$value)
                     <tr>
@@ -46,6 +49,14 @@
                         <td>{{$value->nama}}</td>
                         <td>{{$value->value}}</td>
                         <td></td>
+                        <td>
+                          <a href="/position/{{$value->id}}/edit" class="btn btn-warning m-2">Edit</a>
+                          <form action="/position/{{$value->id}}" method="post">
+                            @csrf
+                            @method('delete')
+                            <input type="submit" value="Delete" class="btn btn-danger">
+                          </form>
+                        </td>
                     </tr>
                 @empty
                     <tr colspan="3">

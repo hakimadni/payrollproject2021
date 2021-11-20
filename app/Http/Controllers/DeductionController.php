@@ -69,7 +69,8 @@ class DeductionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $deduction = Deduction::find($id);
+        return view('deduction/edit', compact('deduction'));
     }
 
     /**
@@ -81,7 +82,17 @@ class DeductionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+    		'value' => 'required'
+        ]);
+
+        $deduction = [
+            'nama' => $request->nama,
+            'value' => $request->value,
+        ];
+        Deduction::whereId($id)->update($deduction);
+        return redirect('/deduction');
     }
 
     /**
