@@ -44,6 +44,43 @@
                     <a href="#" class="btn btn-secondary btn-danger">Remove</a>
                   </td>
                 </tr>
+                @forelse ($employee as $key=>$value)
+                    <tr>
+                      <td class="text-center">
+                        {{$value->id}}
+                      </td>
+                      <td class="text-center">{{$value->nama}}</td>
+                      <td>{{$value->no_ktp}}</td>
+                      <td>{{$value->npwp}}</td>
+                      <td class="text-center">{{$value->position->nama}}</td>
+                      <td class="text-center">{{$value->FamilyStatus->nama}}</td>
+                      <td class="text-center">                    
+                        <a href="/employee/{{$value->id}}/edit" class="btn btn-warning m-2">Edit</a>
+                          <form action="/employee/{{$value->id}}" method="post">
+                            @csrf
+                            @method('delete')
+                            <input type="submit" value="Delete" class="btn btn-danger">
+                          </form>
+                      </td>
+                    </tr>
+                @empty
+                    <tr colspan="3">
+                        <td class="text-center">No data</td>
+                        <td class="text-center">No data</td>
+                        <td class="text-center">No data</td>
+                        <td class="text-center">No data</td>
+                        <td class="text-center">No data</td>
+                        <td class="text-center">No data</td>
+                        <td>
+                          <a href="#" class="btn btn-secondary btn-warning m-2">Edit</a>
+                          <form action="#" method="post">
+                            @csrf
+                            @method('delete')
+                            <input type="submit" value="Delete" class="btn btn-secondary btn-danger">
+                          </form>
+                        </td>
+                    </tr>  
+                @endforelse
               </tbody>
             </table>
           </div>

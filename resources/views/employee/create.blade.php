@@ -17,27 +17,27 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputEmail4">No.KTP</label>
-                  <input type="number" class="form-control" id="inputEmail" placeholder="Input No.KTP">
+                  <input type="number" class="form-control" id="inputEmail" placeholder="Input No.KTP" name="no_ktp">
                 </div>
                 <div class="form-group col-md-6">
                     <label>Family Status</label>
-                    <select class="form-control select2">
+                    <select name="family_status_id" class="form-control select2">
                       <option selected>Select Family Status</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                      @foreach ($FamilyStatus as $item)
+                            <option value="{{$item->id}}">{{$item->nama}}</option>
+                        @endforeach
                     </select>
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputEmail4">Name</label>
-                  <input type="text" class="form-control" id="-" placeholder="Input Name">
+                  <input type="text" class="form-control" id="-" placeholder="Input Name" name="nama">
                 </div>
                 <div class="form-group col-md-6">
                     <label>Upload Photo :</label>
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFile">
+                        <input type="file" class="custom-file-input" id="customFile" name="foto_profil">
                         <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
                 </div>
@@ -45,14 +45,11 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                     <label>Position</label>
-                    <select class="form-control select2">
+                    <select name="position_id" class="form-control select2">
                       <option selected>Select Position</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                      {{-- @foreach ($FamilyStatus as $item)
+                      @foreach ($Position as $item)
                             <option value="{{$item->id}}">{{$item->nama}}</option>
-                      @endforeach --}}
+                        @endforeach
                     </select>
                 </div>
               </div>
@@ -61,7 +58,7 @@
                   <label for="inputEmail4">NPWP</label>
                   <input type="number" class="form-control" name="npwp" id="-" placeholder="Input NPWP">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <input class="form-check-input" type="checkbox" id="gridCheck" name="npwp" value="">
                     <label class="form-check-label" for="gridCheck">
                       Without NPWP
                     </label>

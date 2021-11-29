@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use DB;
-use App\Models\Employee;
-
 
 use Illuminate\Http\Request;
+use DB;
+use App\Models\Employee;
+use App\Models\FamilyStatus;
+use App\Models\Position;
+
 
 class EmployeeController extends Controller
 {
@@ -27,7 +29,9 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        $FamilyStatus = FamilyStatus::all();
+        $Position = Position::all();
+        return view('employee/create', compact('FamilyStatus', 'Position'));
     }
 
     /**
@@ -38,7 +42,30 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+    		'nama' => 'required',
+            'no_ktp' => 'required',
+    		'npwp' => 'required',
+    		'foto_profil' => 'mimes:jpeg,jpg,png|max:2200',
+    		'position_id' => 'required',
+    		'family_status_id' => 'required'
+    	]);
+
+        $foto_profil = $request->foto_profil;
+        $new_foto_profil = time() . ' - ' . $foto_profil->getClientOriginalName();
+ 
+        Employee::create([
+    		'nama' => $request->nama,
+    		'no_ktp' => $request->no_ktp,
+    		'npwp' => $request->npwp,
+            'foto_profil' => $new_foto_profil,
+            'position_id' => $request->position_id,
+            'family_status_id' => $request->family_status_id
+    	]);
+
+        $foto_profil->move('foto/', $new_foto_profil);
+ 
+    	return redirect('/employee');
     }
 
     /**

@@ -274,7 +274,7 @@
           </a>
         </li>
         <li class="dropdown">
-          <a href="employee" class="nav-link">
+          <a href="/employee" class="nav-link">
             <i class="fas fa-users"></i>
             <span>Employee Data</span>
           </a>

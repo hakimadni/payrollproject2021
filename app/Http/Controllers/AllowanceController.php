@@ -103,6 +103,8 @@ class AllowanceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $allowance = Allowance::findorfail($id);
+        $allowance->delete();
+        return redirect('/allowance');
     }
 }

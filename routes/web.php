@@ -35,12 +35,6 @@ Auth::routes();
 
 //ini gua cuma buat preview kim, biar muncul
 
-Route::get('/employee', function () {
-    return view('employee/index');
-});
-Route::get('/employee/create', function () {
-    return view('employee/create');
-});
 require __DIR__.'/auth.php';
 
 // Controller 
