@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/dashboard', function () {
     return view('summary');
 })->middleware(['auth']);
+Route::get('/', function () {
+    return view('summary');
+})->middleware(['auth']);
 
 route::group(['middleware' => ['auth']], function () {
     Route::resources([

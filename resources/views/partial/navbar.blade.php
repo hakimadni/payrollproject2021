@@ -268,7 +268,7 @@
       </div>
       <ul class="sidebar-menu">
         <li class="dropdown active">
-          <a href="/" class="nav-link">
+          <a href="/dashboard" class="nav-link">
             <i class="fas fa-fire"></i>
             <span>Summary</span>
           </a>
