@@ -5,7 +5,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title>General Dashboard &mdash; Stisla</title>
 
-  <link rel="icon" href="{{ url('img/favicon1.png') }}">
+  <link rel="icon" href="{{ url('img/favicon.png') }}">
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="{{asset('modules/bootstrap/css/bootstrap.min.css')}}">

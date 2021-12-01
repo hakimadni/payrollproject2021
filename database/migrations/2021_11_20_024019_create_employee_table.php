@@ -16,8 +16,8 @@ class CreateEmployeeTable extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->integer('no_ktp')->default(16);
-            $table->integer('npwp')->nullable()->default(15);
+            $table->string('no_ktp');
+            $table->string('npwp')->nullable();
             $table->string('foto_profil');
             $table->unsignedBigInteger('position_id');
             $table->foreign('position_id')->references('id')->on('positions');

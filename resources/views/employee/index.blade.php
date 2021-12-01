@@ -23,7 +23,7 @@
                   </th>
                   <th class="text-center">No.KTP</th>
                   <th>Nama</th>
-                  <th>Jabatan</th>
+                  <th class="text-center">Jabatan</th>
                   <th class="text-center">NPWP</th>
                   <th class="text-center">Family Status</th>
                   <th class="text-center">Action</th>
@@ -36,7 +36,7 @@
                   </td>
                   <td class="text-center">0085525225</td>
                   <td>Bu Karti</td>
-                  <td>Staff</td>
+                  <td class="text-center">Staff</td>
                   <td class="text-center">8552-8585-858</td>
                   <td class="text-center">TKP01</td>
                   <td class="text-center">                    
@@ -49,10 +49,10 @@
                       <td class="text-center">
                         {{$value->id}}
                       </td>
-                      <td class="text-center">{{$value->nama}}</td>
-                      <td>{{$value->no_ktp}}</td>
-                      <td>{{$value->npwp}}</td>
+                      <td class="text-center">{{$value->no_ktp}}</td>
+                      <td>{{$value->nama}}</td>
                       <td class="text-center">{{$value->position->nama}}</td>
+                      <td class="text-center">{{$value->npwp}}</td>
                       <td class="text-center">{{$value->FamilyStatus->nama}}</td>
                       <td class="text-center">                    
                         <a href="/employee/{{$value->id}}/edit" class="btn btn-warning m-2">Edit</a>

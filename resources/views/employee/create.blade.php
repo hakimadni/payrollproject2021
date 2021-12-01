@@ -16,7 +16,7 @@
               @csrf
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputEmail4">No.KTP</label>
+                  <label for="inputEmail4">No.KTP (16 Digits)</label>
                   <input type="number" class="form-control" id="inputEmail" placeholder="Input No.KTP" name="no_ktp">
                 </div>
                 <div class="form-group col-md-6">
@@ -55,7 +55,7 @@
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputEmail4">NPWP</label>
+                  <label for="npwp">NPWP (15 Digits)</label>
                   <input type="number" class="form-control" name="npwp" id="-" placeholder="Input NPWP">
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="gridCheck" name="npwp" value="">
