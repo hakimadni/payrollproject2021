@@ -7,6 +7,10 @@ use DB;
 use App\Models\Employee;
 use App\Models\FamilyStatus;
 use App\Models\Position;
+use App\Models\EmployeeHasDeduction;
+use App\Models\EmployeeHasAllowance;
+use App\Models\Allowance;
+use App\Models\Deduction;
 
 
 class EmployeeController extends Controller
@@ -76,7 +80,10 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        //
+        $employee = Employee::find($id);
+        $has_deduction = EmployeeHasDeduction::all();
+        $has_allowance = EmployeeHasAllowance::all();
+        return view('employee/show', compact('employee','has_allowance', 'has_deduction'));
     }
 
     /**
@@ -87,8 +94,12 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        $employee = employee::find($id);
-        return view('employee/edit', compact('employee'));
+        $employee = Employee::find($id);
+        $allowance = allowance::all();
+        $deduction = deduction::all();
+        $has_deduction = EmployeeHasDeduction::all();
+        $has_allowance = EmployeeHasAllowance::all();
+        return view('employee/edit', compact('employee','has_allowance', 'has_deduction', 'allowance', 'deduction'));
     }
 
     /**

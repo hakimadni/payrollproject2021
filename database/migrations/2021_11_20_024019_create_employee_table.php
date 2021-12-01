@@ -13,6 +13,7 @@ class CreateEmployeeTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('employees');
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
@@ -34,6 +35,7 @@ class CreateEmployeeTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('employees');
     }
 }

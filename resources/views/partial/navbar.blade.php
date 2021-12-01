@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>General Dashboard &mdash; Stisla</title>
+  <title>Kim Payroll APP &mdash; 2021</title>
 
   <link rel="icon" href="{{ url('img/favicon.png') }}">
 

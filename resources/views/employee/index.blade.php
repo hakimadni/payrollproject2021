@@ -56,6 +56,7 @@
                       <td class="text-center">{{$value->FamilyStatus->nama}}</td>
                       <td class="text-center">                    
                         <a href="/employee/{{$value->id}}/edit" class="btn btn-warning m-2">Edit</a>
+                        <a href="/employee/{{$value->id}}" class="btn btn-warning m-2">Show</a>
                           <form action="/employee/{{$value->id}}" method="post">
                             @csrf
                             @method('delete')

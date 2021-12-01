@@ -35,12 +35,14 @@
                   <input type="text" class="form-control" id="-" placeholder="Input Name" name="nama">
                 </div>
                 <div class="form-group col-md-6">
-                    <label>Upload Photo :</label>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFile" name="foto_profil">
-                        <label class="custom-file-label" for="customFile">Choose file</label>
-                    </div>
-                </div>
+                  <label for="poster">Foto Profil</label><br>
+                  <input type="file" name="foto_profil" id="body">
+                  @error('poster')
+                      <div class="alert alert-danger">
+                          {{ $message }}
+                      </div>
+                  @enderror
+              </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
