@@ -9,4 +9,8 @@ class Deduction extends Model
 {
     protected $table = "deductions";
     protected $fillable = ["nama", "value"];
+
+    public function Employee(){
+        return $this->belongsToMany(Employee::class);
+    }
 }

@@ -7,8 +7,8 @@ use DB;
 use App\Models\Employee;
 use App\Models\FamilyStatus;
 use App\Models\Position;
-use App\Models\EmployeeHasDeduction;
-use App\Models\EmployeeHasAllowance;
+use App\Models\EmployeeAllowance;
+use App\Models\EmployeeDeduction;
 use App\Models\Allowance;
 use App\Models\Deduction;
 
@@ -81,9 +81,8 @@ class EmployeeController extends Controller
     public function show($id)
     {
         $employee = Employee::find($id);
-        $has_deduction = EmployeeHasDeduction::all();
-        $has_allowance = EmployeeHasAllowance::all();
-        return view('employee/show', compact('employee','has_allowance', 'has_deduction'));
+        $has_allowance = EmployeeAllowance::all();
+        return view('employee/show', compact('employee','has_allowance'));
     }
 
     /**
@@ -97,9 +96,11 @@ class EmployeeController extends Controller
         $employee = Employee::find($id);
         $allowance = allowance::all();
         $deduction = deduction::all();
-        $has_deduction = EmployeeHasDeduction::all();
-        $has_allowance = EmployeeHasAllowance::all();
-        return view('employee/edit', compact('employee','has_allowance', 'has_deduction', 'allowance', 'deduction'));
+        $position = Position::all();
+        $FamilyStatus = FamilyStatus::all();
+        $has_allowance = EmployeeAllowance::where('employee_id', $id)->get();
+        $has_deduction = EmployeeDeduction::where('employee_id', $id)->get();
+        return view('employee/edit', compact('employee','has_allowance', 'has_deduction', 'allowance', 'deduction', 'position', 'FamilyStatus'));
     }
 
     /**
@@ -112,16 +113,34 @@ class EmployeeController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama' => 'required',
-    		'value' => 'required'
+    		'foto_profil' => 'mimes:jpeg,jpg,png|max:2200',
+    		'position_id' => 'required',
+    		'family_status_id' => 'required'
         ]);
 
-        $employee = [
-            'nama' => $request->nama,
-            'value' => $request->value,
-        ];
-        Employee::whereId($id)->update($employee);
-        return redirect('/employee');
+        $employee = Employee::findorfail($id);
+
+        if ($request->has('foto_profil')) {
+            //delete image
+            $path = "foto/";
+            File::delete($path . $employee->foto_profil);
+            $foto_profil = $request->foto_profil;
+            $new_foto_profil = time() . ' - ' . $foto_profil->getClientOriginalName();
+            $foto_profil->move('foto/', $new_foto_profil);
+            $employee_data = [
+                'foto_profil' => $new_foto_profil,
+                'position_id' => $request->position_id,
+                'family_status_id' => $request->family_status_id
+            ];
+        }else {
+            $employee_data = [
+                'position_id' => $request->position_id,
+                'family_status_id' => $request->family_status_id
+            ];
+        }
+        Employee::whereId($id)->update($employee_data);
+
+        return back();
     }
 
     /**

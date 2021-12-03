@@ -27,7 +27,9 @@ route::group(['middleware' => ['auth']], function () {
         'allowance' => AllowanceController::class,
         'deduction' => DeductionController::class,
         'salary' => SalaryController::class,
-        'position' => PositionController::class
+        'position' => PositionController::class,
+        'eallowance' => EmployeeHasAllowanceController::class,
+        'ededuction' => EmployeeHasDeductionController::class
     ]);
 });
 

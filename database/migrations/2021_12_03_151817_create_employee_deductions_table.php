@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableEmployeeHasDeduction extends Migration
+class CreateEmployeeDeductionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTableEmployeeHasDeduction extends Migration
      */
     public function up()
     {
-        Schema::create('employee_has_deduction', function (Blueprint $table) {
+        Schema::create('employee_deduction', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('employee_id');
             $table->foreign('employee_id')->references('id')->on('employees');
@@ -30,7 +30,6 @@ class CreateTableEmployeeHasDeduction extends Migration
      */
     public function down()
     {
-        Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('employee_has_deduction');
+        Schema::dropIfExists('employee_deduction');
     }
 }

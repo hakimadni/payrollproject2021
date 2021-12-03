@@ -42,7 +42,7 @@
                           {{ $message }}
                       </div>
                   @enderror
-              </div>
+                </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">

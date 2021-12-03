@@ -17,4 +17,11 @@ class Employee extends Model
     public function FamilyStatus(){
         return $this->belongsTo('App\Models\FamilyStatus');
     }
+
+    public function Allowance(){
+        return $this->belongsToMany(Allowance::class);
+    }
+    public function Deduction(){
+        return $this->belongsToMany(Deduction::class);
+    }
 }

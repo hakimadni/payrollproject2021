@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableEmployeeHasAllowance extends Migration
+class CreateEmployeeAllowancesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,8 @@ class CreateTableEmployeeHasAllowance extends Migration
      * @return void
      */
     public function up()
-    {  
-        Schema::dropIfExists('employee_has_allowance');
-        Schema::create('employee_has_allowance', function (Blueprint $table) {
+    {
+        Schema::create('employee_allowance', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('employee_id');
             $table->foreign('employee_id')->references('id')->on('employees');
@@ -32,6 +31,6 @@ class CreateTableEmployeeHasAllowance extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('employee_has_allowance');
+        Schema::dropIfExists('employee_allowance');
     }
 }
