@@ -267,13 +267,13 @@
         <img src="{{asset('img/Group 15.png')}}" alt="logo" height="40px" width="40px" class="shadow-dark rounded-circle">
       </div>
       <ul class="sidebar-menu">
-        <li class="dropdown active">
+        <li class="dropdown {{ (request()->is('dashboard*')) ? 'active' : '' }}">
           <a href="/dashboard" class="nav-link">
             <i class="fas fa-fire"></i>
             <span>Summary</span>
           </a>
         </li>
-        <li class="dropdown">
+        <li class="dropdown {{ (request()->is('employee*')) ? 'active' : '' }}">
           <a href="/employee" class="nav-link">
             <i class="fas fa-users"></i>
             <span>Employee Data</span>
@@ -285,13 +285,32 @@
             <span>Payroll Component</span>
           </a>
           <ul class="dropdown-menu">
-            <li><a class="nav-link" href="/allowance">Allowance</a></li>
-            <li><a class="nav-link" href="/deduction">Deduction</a></li>
-            <li><a class="nav-link" href="/taxes">Taxes</a></li>
-            <li><a class="nav-link" href="/position">Position</a></li>
-            <li><a class="nav-link" href="/family_status">Family Status</a></li>
-            <li><a class="nav-link" href="/payroll">Payroll</a></li>
+            <li class="{{ (request()->is('allowance*')) ? 'active' : '' }}">
+              <a class="nav-link" href="/allowance">Allowance</a>
+            </li>
+
+            <li class="{{ (request()->is('deduction*')) ? 'active' : '' }}">
+              <a class="nav-link" href="/deduction">Deduction</a>
+            </li>
+
+            <li class="{{ (request()->is('taxes*')) ? 'active' : '' }}">
+              <a class="nav-link" href="/taxes">Taxes</a>
+            </li>
+
+            <li class="{{ (request()->is('position*')) ? 'active' : '' }}">
+              <a class="nav-link" href="/position">Position</a>
+            </li>
+
+            <li class="{{ (request()->is('family_status*')) ? 'active' : '' }}">
+              <a class="nav-link" href="/family_status">Family Status</a>
+            </li>
           </ul>
+        </li>
+        <li class="dropdown {{ (request()->is('payroll*')) ? 'active' : '' }}">
+          <a href="/payroll" class="nav-link">
+            <i class="fas fa-wallet"></i>
+            <span>Payroll</span>
+          </a>
         </li>
       
           <div class="p-3 hide-sidebar-mini">

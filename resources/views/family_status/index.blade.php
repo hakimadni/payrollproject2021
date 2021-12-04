@@ -27,25 +27,12 @@
                   <th>Action</th>
                 </tr>
               </thead>
-              <tbody>                                 
-                <tr>
-                  <td class="text-center">
-                    TK0
-                  </td>
-                  <td>Not Married, No Responsibilities</td>
-                  <td>
-                    Rp. 54.000.000
-                  </td>
-                  <td>
-                    12, 14, 40, 30
-                  </td>
-                  <td><a href="#" class="btn btn-warning">Edit</a></td>
-                </tr>
+              <tbody>  
                 @forelse ($FamilyStatus as $key=>$value)
                     <tr>
                         <td class="text-center">{{$value->nama}}</td>
                         <td>{{$value->deskripsi}}</td>
-                        <td>{{$value->value}}</td>
+                        <td>Rp. <?= number_format($value->value)?></td>
                         <td></td>
                         <td>
                           <a href="/family_status/{{$value->id}}/edit" class="btn btn-warning m-2">Edit</a>

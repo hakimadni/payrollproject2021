@@ -28,6 +28,8 @@ route::group(['middleware' => ['auth']], function () {
         'deduction' => DeductionController::class,
         'salary' => SalaryController::class,
         'position' => PositionController::class,
+        'taxes' => TaxesController::class,
+        'payroll' => PayrollController::class,
         'eallowance' => EmployeeHasAllowanceController::class,
         'ededuction' => EmployeeHasDeductionController::class
     ]);

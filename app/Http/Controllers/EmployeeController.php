@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use File;
 use App\Models\Employee;
 use App\Models\FamilyStatus;
 use App\Models\Position;
@@ -138,7 +139,7 @@ class EmployeeController extends Controller
                 'family_status_id' => $request->family_status_id
             ];
         }
-        Employee::whereId($id)->update($employee_data);
+        $employee->update($employee_data);
 
         return back();
     }
