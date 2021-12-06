@@ -114,8 +114,8 @@
     
                                             echo "<p>";
                                             echo "<br>" . $PTKP;
-                                            echo "<br> Base Salary      : Rp" . number_format(8000000);
-                                            echo "<br> Salary Position  : Rp" . number_format(($payroll->position->value)-8000000);
+                                            echo "<br> Base Salary      : Rp" . number_format(4500000);
+                                            echo "<br> Salary Position  : Rp" . number_format(($payroll->position->value)-4500000);
                                             echo "<br> Total Allowance  : Rp" . number_format($allowance);
                                             echo "<br> Total Deduction  : Rp" . number_format($deduction);
                                             echo "<br> Gross Payroll    : Rp" . number_format($gross);

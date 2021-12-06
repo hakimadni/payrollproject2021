@@ -22,7 +22,7 @@ class EmployeeHasAllowanceController extends Controller
             'allowance_id' => 'required'
     	]);
  
-        EmployeeDeduction::create([
+        EmployeeAllowance::create([
     		'employee_id' => $request->employee_id,
             'allowance_id' => $request->allowance_id
     	]);

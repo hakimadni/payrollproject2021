@@ -65,23 +65,18 @@
     
     
                                             if($PKP <= 60000000){
-                                                echo "Tax 5% : ";
                                                 $atax = $PKP * 0.05;
                                                 }
                                             elseif($PKP<=250000000){
-                                                echo "Tax 15% : ";
                                                 $atax = 0.05 * 60000000 + ($PKP - 60000000) * 0.15;
                                                 }
                                             elseif($PKP<=500000000){
-                                                echo "Tax 25% : ";
                                                 $atax = 0.05 * 60000000 + (250000000 - 60000000)* 0.15 + ($PKP - 250000000) * 0.25;
                                                 }
                                             elseif($PKP<=5000000000){
-                                                echo "Tax 30% : ";
                                                 $atax = 0.05*60000000+(250000000-600000000)*0.15+(500000000-250000000)*0.25 + ($PKP-500000000) *0.3;
                                                 }
                                             else{
-                                                echo "Tax 35% : ";
                                                 $atax = 0.05*60000000+(250000000-600000000)*0.15+(500000000-250000000)*0.25 + ($PKP-500000000) *0.3 + ($PKP - 5000000000)*0.35;
                                             }
     
@@ -90,9 +85,9 @@
 
                                             if($npwp == "0"){
                                                 $ftax = (0.2 * $mtax) + $mtax;
-                                                echo "Rp"; echo number_format($total - $ftax);
+                                                echo "Nett Payroll <br> Rp"; echo number_format($total - $ftax);
                                             } else{
-                                                echo "Rp"; echo number_format($total -  $mtax);
+                                                echo "Nett Payroll <br> Rp"; echo number_format($total -  $mtax);
                                             }    
                           @endphp
                       </p>

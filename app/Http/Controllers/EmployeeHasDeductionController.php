@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use App\Models\Employeededuction;
+use App\Models\EmployeeDeduction;
 
 class EmployeeHasDeductionController extends Controller
 {  

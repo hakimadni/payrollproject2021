@@ -29,21 +29,7 @@
                   <th class="text-center">Action</th>
                 </tr>
               </thead>
-              <tbody>                                 
-                <tr>
-                  <td class="text-center">
-                    1
-                  </td>
-                  <td class="text-center">0085525225</td>
-                  <td>Bu Karti</td>
-                  <td class="text-center">Staff</td>
-                  <td class="text-center">8552-8585-858</td>
-                  <td class="text-center">TKP01</td>
-                  <td class="text-center">                    
-                    <a href="#" class="btn btn-secondary btn-warning">Update</a>
-                    <a href="#" class="btn btn-secondary btn-danger">Remove</a>
-                  </td>
-                </tr>
+              <tbody>  
                 @forelse ($employee as $key=>$value)
                     <tr>
                       <td class="text-center">
@@ -56,11 +42,11 @@
                       <td class="text-center">{{$value->FamilyStatus->nama}}</td>
                       <td class="text-center">                    
                         <a href="/employee/{{$value->id}}/edit" class="btn btn-warning m-2">Edit</a>
-                        <a href="/employee/{{$value->id}}" class="btn btn-success m-2">Show</a>
+                        <a href="/employee/{{$value->id}}" class="btn btn-primary m-2">Show</a>
                           <form action="/employee/{{$value->id}}" method="post">
                             @csrf
                             @method('delete')
-                            <input type="submit" value="Delete" class="btn btn-danger">
+                            <input type="submit" value="Delete" class="btn btn-danger m-2">
                           </form>
                       </td>
                     </tr>
