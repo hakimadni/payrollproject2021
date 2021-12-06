@@ -152,6 +152,12 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $employee = employee::findorfail($id);
+        $employee->delete();
+
+        $path = "img/";
+        File::delete($path . $film->foto_profil);
+
+        return redirect('/employee');
     }
 }

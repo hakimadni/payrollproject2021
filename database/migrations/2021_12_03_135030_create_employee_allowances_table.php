@@ -16,9 +16,9 @@ class CreateEmployeeAllowancesTable extends Migration
         Schema::create('employee_allowance', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('employee_id');
-            $table->foreign('employee_id')->references('id')->on('employees');
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
             $table->unsignedBigInteger('allowance_id');
-            $table->foreign('allowance_id')->references('id')->on('allowances');
+            $table->foreign('allowance_id')->references('id')->on('allowances')->onDelete('cascade');
             $table->timestamps();
         });
     }

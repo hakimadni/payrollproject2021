@@ -86,11 +86,13 @@ class FamilyStatusController extends Controller
     {
         $request->validate([
             'nama' => 'required',
+            'deskripsi' => 'required',
     		'value' => 'required'
         ]);
 
         $FamilyStatus = [
             'nama' => $request->nama,
+            'deskripsi' => $request->deskripsi,
             'value' => $request->value,
         ];
         FamilyStatus::whereId($id)->update($FamilyStatus);

@@ -24,8 +24,8 @@
               </div>
               <div class="form-group">
                 <label for="deskripsi">Family Status Description</label>
-                <textarea name="deskripsi" id="deskripsi" cols="30" rows="10" class="form-control" name="deskripsi" tabindex="1" value="{{$FamilyStatus->deskripsi}}" required autofocus></textarea>
-                
+                <textarea name="deskripsi" id="deskripsi" cols="30" rows="10" class="form-control" name="deskripsi" tabindex="1" required autofocus>{{$FamilyStatus->deskripsi}}</textarea>
+                <!--gimanaa ini kimmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm ngabisa edit deskripsiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii piye piyeee-->
                 <div class="invalid-feedback">
                   Please fill in your Family Status Description
                 </div>

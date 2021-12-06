@@ -66,13 +66,17 @@
                     <!--TOLONG KOREKSI INI KEKNYA SALAH DAH NGATAU BENER ATO KAGA -->
                     <div class="form-group">
                         <label for="admincode">Admin Code</label>
-                        <input id="text" type="text" class="form-control shadow-light" name="">
+                        <input id="admincode" type="text" class="form-control shadow-light" name="admin_code">
                         <div class="invalid-feedback">
                         </div>
                       </div>
-  
+
+                      <script>
+                        
+                      </script>
+
                     <div class="form-group">
-                      <button type="submit" class="btn btn-primary btn-lg btn-block">
+                      <button type="submit" id="submit" class="btn btn-primary btn-lg btn-block">
                         {{ __('Register') }}
                       </button>
                     </div>

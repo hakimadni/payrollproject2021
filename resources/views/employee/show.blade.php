@@ -40,29 +40,35 @@
             
 
               <div class="col-12 col-md-12 col-lg-7">
+                
                 <div class="card">
-                <div class="details m-5" style="display:none">
+                    <div class="details m-5" style="display:none">
+                        
                         <table class="table table-striped">
                           <thead>                                 
                             <tr>
                               <th>Allowance Name</th>
                               <th>Value</th>
+                              <th>Action</th>
                             </tr>
                           </thead>
-                          <tbody>                                 
-                            <tr>
-                              <td>Create a mobile app</td>
-                              <td>
-                                Rp. 500.000
-                              </td>
-                            </tr>
+                          <tbody>
                                 @forelse ($has_allowance as $key=>$value)
                                     <tr>
                                         <td>{{$value->allowance->nama}}</td>
-                                        <td>Rp. {{$value->value}}</td>
+                                        <td>Rp. <?= number_format($value->allowance->value)?></td>
+                                        <td>
+                                          <form action="/eallowance/{{$value->id}}" method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <input type="submit" value="Delete" class="btn btn-danger">
+                                          </form>
+                                        </td>
                                     </tr>
                                 @empty
                                     <tr colspan="3">
+                                        <td>No data</td>
+                                        <td>No data</td>
                                         <td>No data</td>
                                     </tr>  
                                 @endforelse
@@ -70,30 +76,53 @@
                         </table>
                       </div>
                     </div>
-                <a id="more" class="btn btn-primary mt-5" onclick="$('.details').slideToggle(function(){$('#more').html($('.details').is(':visible')?'See Less':'See Allowance');});">Show Allowance</a>
+                <a id="more1" class="btn btn-primary btn-block" onclick="$('.details').slideToggle(function(){$('#more1').html($('.details').is(':visible')?'See Less Allowance':'See More Allowance');});">Show Allowance</a>
                   
                 <div class="card mt-5">
-                    <div class="details1 m-5" style="display:none">
+                        <div class="details1 m-5" style="display:none">
+                          <form action="/ededuction" method="POST">
+                            @csrf
+                            <div class="form-group">
+                                <input type="hidden" name="employee_id" value="{{$employee->id}}">
+                                <div class="form-group">
+                                <label>Add Deduction</label>
+                                <select name="deduction_id" class="form-control">
+                                  <option disabled selected>Select Deduction</option>
+                                    @foreach ($deduction as $item)
+                                    <option value="{{$item->id}}">{{$item->nama}}</option>
+                                @endforeach
+                                </select>
+                              </div>
+                              <button type="submit" class="btn btn-primary btn-lg mb-1">
+                                Add Deduction
+                              </button>
+                        </form>
                             <table class="table table-striped">
                               <thead>                                 
                                 <tr>
                                   <th>Deduction Name</th>
                                   <th>Value</th>
+                                  <th>Action</th>
                                 </tr>
                               </thead>
                               <tbody>                                 
                                 <tr>
-                                  <td>Create a mobile app</td>
-                                  <td>Rp. 500.000</td>
-                                  
-                                </tr>
-                                    @forelse ($has_allowance as $key=>$value)
+                                    @forelse ($has_deduction as $key=>$value)
                                         <tr>
-                                            <td>{{$value->allowance->nama}}</td>
-                                            <td>Rp. {{$value->value}}</td>
+                                            <td>{{$value->deduction->nama}}</td>
+                                            <td>Rp. <?= number_format($value->deduction->value)?></td>
+                                            <td>
+                                              <form action="/ededuction/{{$value->id}}" method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <input type="submit" value="Delete" class="btn btn-danger">
+                                            </form>
+                                            </td>
                                         </tr>
                                     @empty
                                         <tr colspan="3">
+                                            <td>No data</td>
+                                            <td>No data</td>
                                             <td>No data</td>
                                         </tr>  
                                     @endforelse
@@ -101,7 +130,7 @@
                             </table>
                           </div>
                         </div>
-                    <a id="more" class="btn btn-primary mt-5" onclick="$('.details1').slideToggle(function(){$('#more').html($('.details1').is(':visible')?'See Less':'See Deduction');});">Show Deduction</a>
+                    <a id="more" class="btn btn-primary btn-block" onclick="$('.details1').slideToggle(function(){$('#more').html($('.details1').is(':visible')?'See Less Deduction':'See More Deduction');});">Show Deduction</a>
 
                 </div>
               </div>

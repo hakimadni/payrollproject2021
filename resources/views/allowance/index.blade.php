@@ -28,7 +28,7 @@
                 </tr>
               </thead>
               <tbody>                                 
-                <tr>
+                <!-- <tr>
                   <td class="text-center">
                     1
                   </td>
@@ -42,7 +42,7 @@
                   <td>
                     <a href="#" class="btn btn-primary">Edit</a>
                   </td>
-                </tr>
+                </tr> -->
                 @forelse ($allowance as $key=>$value)
                     <tr>
                         <td class="text-center">{{$value->id}}</td>

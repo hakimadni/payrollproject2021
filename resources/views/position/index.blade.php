@@ -27,8 +27,9 @@
                   <th>Actions</th>
                 </tr>
               </thead>
-              <tbody>                                 
-                <tr>
+              <tbody> 
+                <!-- yg ini gw hapus yaaa.. biar rapii diliatnya                            -->
+                <!-- <tr>
                   <td class="text-center">
                     1
                   </td>
@@ -42,7 +43,7 @@
                   <td>
                     <a href="#" class="btn btn-primary">Edit</a>
                   </td>
-                </tr>
+                </tr> -->
                 @forelse ($position as $key=>$value)
                     <tr>
                         <td class="text-center">{{$value->id}}</td>
