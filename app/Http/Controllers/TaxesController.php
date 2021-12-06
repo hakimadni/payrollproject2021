@@ -20,37 +20,6 @@ class TaxesController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('allowance/create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $this->validate($request,[
-    		'nama' => 'required',
-            'value' => 'required'
-    	]);
- 
-        Allowance::create([
-    		'nama' => $request->nama,
-            'value' => $request->value
-    	]);
- 
-    	return redirect('/allowance');
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -58,7 +27,8 @@ class TaxesController extends Controller
      */
     public function show($id)
     {
-        //
+        $employee = Employee::find($id);
+        return view('taxes/show', compact('employee'));
     }
 
     /**

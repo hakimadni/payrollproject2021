@@ -47,8 +47,8 @@
                     <tr>
                         <td class="text-center">{{$value->id}}</td>
                         <td>{{$value->nama}}</td>
-                        <td>{{$value->value}}</td>
-                        <td></td>
+                        <td>Rp<?php echo number_format ($value->value) ?></td>
+                        <td></td> 
                         <td>
                           <a href="/position/{{$value->id}}/edit" class="btn btn-warning m-2">Edit</a>
                           <form action="/position/{{$value->id}}" method="post">

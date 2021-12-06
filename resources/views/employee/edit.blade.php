@@ -137,7 +137,7 @@
                         </table>
                       </div>
                     </div>
-                <a id="more" class="btn btn-primary btn-block" onclick="$('.details').slideToggle(function(){$('#more').html($('.details').is(':visible')?'See Less':'See Allowance');});">Show Allowance</a>
+                <a id="more1" class="btn btn-primary btn-block" onclick="$('.details').slideToggle(function(){$('#more1').html($('.details').is(':visible')?'See Less Allowance':'See More Allowance');});">Show Allowance</a>
                   
                 <div class="card mt-5">
                         <div class="details1 m-5" style="display:none">
@@ -191,7 +191,7 @@
                             </table>
                           </div>
                         </div>
-                    <a id="more" class="btn btn-primary btn-block" onclick="$('.details1').slideToggle(function(){$('#more').html($('.details1').is(':visible')?'See Less':'See Deduction');});">Show Deduction</a>
+                    <a id="more" class="btn btn-primary btn-block" onclick="$('.details1').slideToggle(function(){$('#more').html($('.details1').is(':visible')?'See Less Deduction':'See More Deduction');});">Show Deduction</a>
 
                 </div>
               </div>

@@ -55,15 +55,32 @@
                     </select>
                 </div>
               </div>
+
+              
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="npwp">NPWP (15 Digits)</label>
-                  <input type="number" class="form-control" name="npwp" id="-" placeholder="Input NPWP">
+                  <input type="number" class="form-control group1" name="npwp" id="npwp" placeholder="Input NPWP">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck" name="npwp" value="">
+                    <input class="form-check-input" name="npwp" type="checkbox" id="gridCheck" value="0">
+                    <script>
+                      $(function() {
+                        enable_cb();
+                        $("#gridCheck").click(enable_cb);
+                      });
+
+                      function enable_cb() {
+                        if (this.checked) {
+                          $("input.group1").attr("disabled", true);
+                        } else {
+                          $("input.group1").removeAttr("disabled");
+                        }
+                      }
+                    </script>
                     <label class="form-check-label" for="gridCheck">
                       Without NPWP
                     </label>
+                    
                   </div>
                 </div>
               </div>

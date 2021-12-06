@@ -19,9 +19,9 @@ class Employee extends Model
     }
 
     public function Allowance(){
-        return $this->belongsToMany(Allowance::class);
+        return $this->belongsToMany(Allowance::class, 'employee_allowance');
     }
     public function Deduction(){
-        return $this->belongsToMany(Deduction::class);
+        return $this->belongsToMany(Deduction::class, 'employee_deduction');
     }
 }

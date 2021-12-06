@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\Employee;
+use App\Models\EmployeeAllowance;
+use App\Models\EmployeeDeduction;
+use App\Models\Allowance;
+use App\Models\Deduction;
 
 class PayrollController extends Controller
 {
@@ -15,39 +19,11 @@ class PayrollController extends Controller
      */
     public function index()
     {  
-        $employee = Employee::all();
-        return view('payroll/index', compact('employee'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('allowance/create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $this->validate($request,[
-    		'nama' => 'required',
-            'value' => 'required'
-    	]);
- 
-        Allowance::create([
-    		'nama' => $request->nama,
-            'value' => $request->value
-    	]);
- 
-    	return redirect('/allowance');
+        $payroll = Employee::withSum('Allowance', 'value')->withSum('Deduction', 'value')->get();
+        // dd($payroll);
+        $allowance = Allowance::all();
+        $deduction = Deduction::all();
+        return view('payroll/index', compact('payroll','allowance', 'deduction'));
     }
 
     /**
@@ -57,8 +33,11 @@ class PayrollController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   
+        
+        $payroll = Employee::withSum('Allowance', 'value')->withSum('Deduction', 'value')->find($id);
+        // dd($payroll);
+        return view('payroll/show', compact('payroll'));
     }
 
     /**
@@ -92,19 +71,6 @@ class PayrollController extends Controller
             'value' => $request->value,
         ];
         Allowance::whereId($id)->update($allowance);
-        return redirect('/allowance');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $allowance = Allowance::findorfail($id);
-        $allowance->delete();
         return redirect('/allowance');
     }
 }

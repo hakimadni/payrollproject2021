@@ -32,7 +32,7 @@
                     <tr>
                         <td class="text-center">{{$value->id}}</td>
                         <td>{{$value->nama}}</td>
-                        <td>Rp. <?= number_format($value->value)?></td>
+                        <td>Rp<?php echo number_format ($value->value) ?></td>
                         <td></td>
                         <td>
                           <a href="/deduction/{{$value->id}}/edit" class="btn btn-warning m-2">Edit</a>

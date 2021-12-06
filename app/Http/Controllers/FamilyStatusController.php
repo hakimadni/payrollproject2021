@@ -72,7 +72,7 @@ class FamilyStatusController extends Controller
     public function edit($id)
     {
         $FamilyStatus = FamilyStatus::find($id);
-        return view('family_status/edit', compact('family_status'));
+        return view('family_status/edit', compact('FamilyStatus'));
     }
 
     /**

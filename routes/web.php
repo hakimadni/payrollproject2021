@@ -34,8 +34,10 @@ route::group(['middleware' => ['auth']], function () {
         'ededuction' => EmployeeHasDeductionController::class
     ]);
 });
-
 Auth::routes();
+
+
+
 
 //ini gua cuma buat preview kim, biar muncul
 

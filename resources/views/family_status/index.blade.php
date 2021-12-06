@@ -32,7 +32,7 @@
                     <tr>
                         <td class="text-center">{{$value->nama}}</td>
                         <td>{{$value->deskripsi}}</td>
-                        <td>Rp. <?= number_format($value->value)?></td>
+                        <td>Rp<?php echo number_format ($value->value) ?></td>
                         <td></td>
                         <td>
                           <a href="/family_status/{{$value->id}}/edit" class="btn btn-warning m-2">Edit</a>

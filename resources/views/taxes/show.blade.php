@@ -1,22 +1,46 @@
 @extends('layout.master')
 @section('title')
-    Taxes
+    Show Taxes {{$employee->id}}
 @endsection
 @section('content')
-    <div class="row">
-        @foreach ($employee as $item)
-            <div class="col-2 m-5">
-                <div class="card" style="width: 18rem;">
-                        <img src="{{asset('foto/' . $item->foto_profil )}}" class="foto-profil card-img-top rounded" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">{{$item->id}}. {{$item->nama}} </h5>
-                      <p class="card-text">
-                        @php   
+
+          <a href="/taxes" class="btn btn-danger mb-1 pl-4 pr-4">Back</a>  
+          <div class="section-body">
+            <h2 class="section-title">View Taxes {{$employee->nama}}!</h2>
+            <div class="row">
+                        <div class="col-8">
+                            <div class="card profile-widget">
+                              <div class="profile-widget-header">                     
+                                
+                                <div class="profile-widget-items">
+                                  <div class="profile-widget-item">
+                                    <div class="profile-widget-item-label">ID</div>
+                                    <div class="profile-widget-item-value">{{$employee->id}}</div>
+                                  </div>
+                                  <div class="profile-widget-item">
+                                    <div class="profile-widget-item-label">Position</div>
+                                    <div class="profile-widget-item-value">{{$employee->position->nama}}</div>
+                                  </div>
+                                  <div class="profile-widget-item">
+                                    <div class="profile-widget-item-label">Family Status</div>
+                                    <div class="profile-widget-item-value">{{$employee->FamilyStatus->nama}}</div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="profile-widget-description">
+                                  <div class="row">
+                                        <div class="col-4">
+                                            <img src="{{asset('foto/' . $employee->foto_profil )}}" class="rounded foto-profil img-fluid" alt="...">
+                                        </div>
+                                      <div class="col-4">
+                                            <div class="profile-widget-name">{{$employee->nama}} <div class="text-muted d-inline font-weight-normal"><div class="slash"></div> {{$employee->position->nama}}</div>
+                                            </div>
+                                            @php
                                             $PKP = 0;
                                             $regsub = 0;
-                                            $gross_income = $item->position->value;
+                                            $gross_income = $employee->position->value;
                                             $annual_gross_income = $gross_income * 12;
-                                            $PTKP = "{$item->FamilyStatus->nama}";
+                                            $PTKP = "{$employee->FamilyStatus->nama}";
                                             $positional_fee = 0.05 * $annual_gross_income;
                                             if($positional_fee >= 6000000){
                                                 $positional_fee = 6000000;}
@@ -82,21 +106,30 @@
                                             }
     
                                             $mtax = $atax/12;
-                                            $npwp = $item->npwp;
+                                            $npwp = $employee->npwp;
                                             if($npwp == "0"){
                                                 $ftax = (0.2 * $mtax) + $mtax;
                                                 echo "Rp"; echo number_format($ftax);
                                             } else{
                                                 echo "Rp"; echo number_format($mtax);
-                                            }         
-                        @endphp
-                      </p>
-                      <p><span class="badge badge-dark">{{$item->position->nama}}</span></p>
-                      <a href="/taxes/{{$item->id}}" class="btn btn-primary">Detail</a>
-                    </div>
-                  </div>
+                                            }    
+    
+                                            echo "<p>";
+                                            echo "<br>" . $PTKP;
+                                            echo "<br> Gross Income             : Rp" . number_format($gross_income);
+                                            echo "<br> Annual Gross Income      : Rp" . number_format($annual_gross_income);
+                                            echo "<br> Positional Fee           : Rp" . number_format($positional_fee);
+                                            echo "<br> Reegulator Substractor   : Rp" . number_format($regsub);
+                                            echo "<br> PKP                      : Rp" . number_format($PKP);
+                                            echo "<p>";
+                                        @endphp
+                                        </div>
+                                  </div>
+                                </div>
+                              </div>
+                                
             </div>
-            
-        @endforeach
-    </div>
+          </div>
+        </section>
+      </div>
 @endsection
