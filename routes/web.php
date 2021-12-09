@@ -12,13 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/dashboard', function () {
-    return view('summary');
-})->middleware(['auth']);
-Route::get('/', function () {
-    return view('summary');
-})->middleware(['auth']);
+route::group(['middleware' => ['auth']], function () {
+Route::get('/dashboard', 'SummaryController@index');
+Route::get('/', 'SummaryController@index');
+});
 
 route::group(['middleware' => ['auth']], function () {
     Route::resources([
@@ -35,8 +32,6 @@ route::group(['middleware' => ['auth']], function () {
     ]);
 });
 Auth::routes();
-
-
 
 
 //ini gua cuma buat preview kim, biar muncul

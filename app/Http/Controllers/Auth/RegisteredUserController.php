@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use App\Models\AdminCode;
+use DB;
 
 
 class RegisteredUserController extends Controller
@@ -22,7 +23,8 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        $code = DB::table('admin_code')->select('code')->first();
+        return view('auth.register', compact('code'));
     }
 
     /**
@@ -35,22 +37,29 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+        $code = DB::table('admin_code')->select('code')->first();
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()]
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'admin_code' => ['required']
         ]);
+        $codereq = $request->admin_code;
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        if ($codereq == $code) {
+            
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
+            event(new Registered($user));
 
-        event(new Registered($user));
+            Auth::login($user);
 
-        Auth::login($user);
-
-        return redirect(RouteServiceProvider::HOME);
+            return redirect(RouteServiceProvider::HOME);
+        }else{
+            return back();
+        }
     }
 }

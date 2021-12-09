@@ -1,19 +1,19 @@
 "use strict";
 
-var statistics_chart = document.getElementById("myChart").getContext('2d');
 
-var myChart = new Chart(statistics_chart, {
-  type: 'line',
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'bar',
   data: {
-    labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    labels: ["Taxes", "Position", "Allowance", "Deduction"],
     datasets: [{
       label: 'Statistics',
-      data: [640, 387, 530, 302, 430, 270, 488],
-      borderWidth: 5,
+      data: [460, 458, 330,],
+      borderWidth: 2,
+      backgroundColor: '#6777ef',
       borderColor: '#6777ef',
-      backgroundColor: 'transparent',
-      pointBackgroundColor: '#fff',
-      pointBorderColor: '#6777ef',
+      borderWidth: 2.5,
+      pointBackgroundColor: '#ffffff',
       pointRadius: 4
     }]
   },
@@ -24,17 +24,20 @@ var myChart = new Chart(statistics_chart, {
     scales: {
       yAxes: [{
         gridLines: {
-          display: false,
           drawBorder: false,
+          color: '#f2f2f2',
         },
         ticks: {
+          beginAtZero: true,
           stepSize: 150
         }
       }],
       xAxes: [{
+        ticks: {
+          display: false
+        },
         gridLines: {
-          color: '#fbfbfb',
-          lineWidth: 2
+          display: false
         }
       }]
     },

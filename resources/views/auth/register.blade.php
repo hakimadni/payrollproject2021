@@ -71,14 +71,18 @@
                         </div>
                       </div>
 
-                      <script>
-                        
-                      </script>
-
                     <div class="form-group">
                       <button type="submit" id="submit" class="btn btn-primary btn-lg btn-block">
                         {{ __('Register') }}
                       </button>
+                      <script>
+                        var code= $code;
+                      if (code < 18) {
+                        $("#submit").removeAttr("disabled");
+                      } else {
+                        $("#submit").attr("disabled", true);
+                      }
+                      </script>
                     </div>
                   </form>
                 </div>

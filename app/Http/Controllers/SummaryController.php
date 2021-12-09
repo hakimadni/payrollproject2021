@@ -9,7 +9,7 @@ use App\Models\EmployeeAllowance;
 use App\Models\EmployeeDeduction;
 use App\Models\Allowance;
 use App\Models\Deduction;
-
+use App\Models\Position;
 class SummaryController extends Controller
 {
     /**
@@ -19,7 +19,14 @@ class SummaryController extends Controller
      */
     public function index()
     {
-        //
+        $payroll = Employee::withSum('Allowance', 'value')->withSum('Deduction', 'value')->get();
+        // dd($payroll);
+        
+        $allowance = Allowance::all();
+        $deduction = Deduction::all();
+        $employee = Employee::all();
+        $position = Position::all();
+        return view('summary', compact('payroll','allowance', 'deduction', 'employee', 'position'));
     }
 
     

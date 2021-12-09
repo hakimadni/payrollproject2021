@@ -4,216 +4,333 @@
     Meng Summary
 @endsection
 @section('content')
-<div class="row">
+<div class="row mt-5">
   <div class="col-lg-3 col-md-6 col-sm-6 col-12">
     <div class="card card-statistic-1">
-      <div class="card-icon bg-primary">
-        <i class="far fa-user"></i>
-      </div>
+      <a href="/employee">
+        <div class="card-icon bg-primary">
+          <i class="far fa-user"></i>
+        </div>
+      </a>
       <div class="card-wrap">
         <div class="card-header">
-          <h4>Total Pekerja</h4>
+          <h4>Total Employee</h4>
         </div>
         <div class="card-body">
-          10
+          <?= count($employee)?>
         </div>
       </div>
     </div>
   </div>
   <div class="col-lg-3 col-md-6 col-sm-6 col-12">
     <div class="card card-statistic-1">
-      <div class="card-icon bg-danger">
-        <i class="far fa-newspaper"></i>
-      </div>
+      <a href="/allowance">
+        <div class="card-icon bg-primary">
+          <i class="far fa-file"></i>
+        </div>
+      </a>
       <div class="card-wrap">
         <div class="card-header">
-          <h4>News</h4>
+          <h4>Total Allowance Type</h4>
         </div>
         <div class="card-body">
-          42
+          <?= count($allowance)?>
         </div>
       </div>
     </div>
   </div>
   <div class="col-lg-3 col-md-6 col-sm-6 col-12">
     <div class="card card-statistic-1">
-      <div class="card-icon bg-warning">
-        <i class="far fa-file"></i>
-      </div>
+      <a href="/deduction">
+        <div class="card-icon bg-danger">
+          <i class="far fa-file"></i>
+        </div>
+      </a>
+      
       <div class="card-wrap">
         <div class="card-header">
-          <h4>Reports</h4>
+          <h4>Total Deduction Type</h4>
         </div>
         <div class="card-body">
-          1,201
+          <?= count($deduction)?>
         </div>
       </div>
     </div>
   </div>
   <div class="col-lg-3 col-md-6 col-sm-6 col-12">
     <div class="card card-statistic-1">
-      <div class="card-icon bg-success">
-        <i class="fas fa-circle"></i>
-      </div>
+      <a href="/position">
+        <div class="card-icon bg-success">
+          <i class="fas fa-circle"></i>
+        </div>
+      </a>
+      
       <div class="card-wrap">
         <div class="card-header">
-          <h4>Online Users</h4>
+          <h4>Total Position</h4>
         </div>
         <div class="card-body">
-          47
+          <?= count($position)?>
         </div>
       </div>
     </div>
   </div>                  
 </div>
-<div class="row">
+<div class="row mt-5">
   <div class="col-lg-3 col-md-6 col-sm-6 col-12">
     <div class="card card-statistic-1">
-      <div class="card-icon bg-primary">
-        <i class="far fa-user"></i>
-      </div>
+      <a href="/employee">
+        <div class="card-icon bg-primary">
+          <i class="far fa-user"></i>
+        </div>
+      </a>
       <div class="card-wrap">
         <div class="card-header">
-          <h4>Total Pekerja</h4>
+          <h4>Total Payroll</h4>
         </div>
         <div class="card-body">
-          10
+          <?php
+            $sum = 0;
+            foreach($payroll as $key=>$value)
+            {
+                                            $PKP = 0;
+                                            $nnpwp = 0;
+                                            $wnpwp = 0;
+                                            $regsub = 0;
+                                            $total = 0;
+                                            $all = $value->allowance_sum_value;
+                                            $ded = $value->deduction_sum_value;
+                                            $gross_income = $value->position->value;
+                                            $total = $gross_income + $all - $ded;
+                                            $annual_gross_income = $gross_income * 12;
+                                            $PTKP = "{$value->FamilyStatus->nama}";
+                                            $positional_fee = 0.05 * $annual_gross_income;
+                                            if($positional_fee >= 6000000){
+                                                $positional_fee = 6000000;}
+    
+                                            switch($PTKP){
+                                                case 'TK0':
+                                                    $regsub = $positional_fee + 54000000;
+                                                    $PKP = $annual_gross_income - $regsub;
+                                                    break;
+                                                case 'TK1':
+                                                    $regsub = $positional_fee + 58500000;
+                                                    $PKP = $annual_gross_income - $regsub;
+                                                    break;
+                                                case 'TK2':
+                                                    $regsub = $positional_fee + 63000000;
+                                                    $PKP = $annual_gross_income - $regsub;
+                                                    break;
+                                                case 'TK3':
+                                                    $regsub = $positional_fee + 67500000;
+                                                    $PKP = $annual_gross_income - $regsub;
+                                                    break;
+                                                case 'K0':
+                                                    $regsub = $positional_fee + 58500000;
+                                                    $PKP = $annual_gross_income - $regsub;
+                                                    break;
+                                                case 'K1':
+                                                    $regsub = $positional_fee + 63000000;
+                                                    $PKP = $annual_gross_income - $regsub;
+                                                    break;
+                                                case 'K2':
+                                                    $regsub = $positional_fee + 67500000;
+                                                    $PKP = $annual_gross_income - $regsub;
+                                                    break;
+                                                case 'K3':
+                                                    $regsub = $positional_fee + 72000000;
+                                                    $PKP = $annual_gross_income - $regsub;
+                                                    break;
+                                                default:
+                                                    echo "not detected";
+                                                    break;
+                                            }
+    
+    
+                                            if($PKP <= 60000000){
+                                                $atax = $PKP * 0.05;
+                                                }
+                                            elseif($PKP<=250000000){
+                                                $atax = 0.05 * 60000000 + ($PKP - 60000000) * 0.15;
+                                                }
+                                            elseif($PKP<=500000000){
+                                                $atax = 0.05 * 60000000 + (250000000 - 60000000)* 0.15 + ($PKP - 250000000) * 0.25;
+                                                }
+                                            elseif($PKP<=5000000000){
+                                                $atax = 0.05*60000000+(250000000-600000000)*0.15+(500000000-250000000)*0.25 + ($PKP-500000000) *0.3;
+                                                }
+                                            else{
+                                                $atax = 0.05*60000000+(250000000-600000000)*0.15+(500000000-250000000)*0.25 + ($PKP-500000000) *0.3 + ($PKP - 5000000000)*0.35;
+                                            }
+    
+                                            $mtax = $atax/12;
+                                            $npwp = $value->npwp;
+
+                                            if($npwp == "0"){
+                                                $ftax = (0.2 * $mtax) + $mtax;
+                                                $nnpwp($total - $ftax);
+                                            } else{
+                                                $wnpwp = ($total -  $mtax);
+                                            } 
+
+              $sum+= $nnpwp + $wnpwp;
+            }
+            echo "Rp ";
+            echo number_format($sum);
+            ?>
         </div>
       </div>
     </div>
   </div>
   <div class="col-lg-3 col-md-6 col-sm-6 col-12">
     <div class="card card-statistic-1">
-      <div class="card-icon bg-danger">
-        <i class="far fa-newspaper"></i>
-      </div>
+      <a href="/allowance">
+        <div class="card-icon bg-primary">
+          <i class="far fa-file"></i>
+        </div>
+      </a>
       <div class="card-wrap">
         <div class="card-header">
-          <h4>News</h4>
+          <h4>Total Allowance</h4>
         </div>
         <div class="card-body">
-          42
+          <?php
+            $sum = 0;
+            foreach($payroll as $key=>$value)
+            {
+              $sum+= $value->allowance_sum_value;
+            }
+            echo "Rp ";
+            echo number_format($sum);
+            ?>
         </div>
       </div>
     </div>
   </div>
   <div class="col-lg-3 col-md-6 col-sm-6 col-12">
     <div class="card card-statistic-1">
-      <div class="card-icon bg-warning">
-        <i class="far fa-file"></i>
-      </div>
+      <a href="/deduction">
+        <div class="card-icon bg-danger">
+          <i class="far fa-file"></i>
+        </div>
+      </a>
+      
       <div class="card-wrap">
         <div class="card-header">
-          <h4>Reports</h4>
+          <h4>Total Deduction</h4>
         </div>
         <div class="card-body">
-          1,201
+            <?php
+            $sum = 0;
+            foreach($payroll as $key=>$value)
+            {
+              $sum+= $value->deduction_sum_value;
+            }
+            echo "Rp ";
+            echo number_format($sum);
+            ?>
         </div>
       </div>
     </div>
   </div>
   <div class="col-lg-3 col-md-6 col-sm-6 col-12">
     <div class="card card-statistic-1">
-      <div class="card-icon bg-success">
-        <i class="fas fa-circle"></i>
-      </div>
+      <a href="/position">
+        <div class="card-icon bg-success">
+          <i class="fas fa-circle"></i>
+        </div>
+      </a>
+      
       <div class="card-wrap">
         <div class="card-header">
-          <h4>Online Users</h4>
+          <h4>Total Taxes</h4>
         </div>
         <div class="card-body">
-          47
+          <?php
+            $sum = 0;
+            foreach($payroll as $key=>$value)
+            {
+                                            $PKP = 0;
+                                            $regsub = 0;
+                                            $gross_income = $value->position->value;
+                                            $annual_gross_income = $gross_income * 12;
+                                            $PTKP = "{$value->FamilyStatus->nama}";
+                                            $positional_fee = 0.05 * $annual_gross_income;
+                                            if($positional_fee >= 6000000){
+                                                $positional_fee = 6000000;}
+    
+                                            switch($PTKP){
+                                                case 'TK0':
+                                                    $regsub = $positional_fee + 54000000;
+                                                    $PKP = $annual_gross_income - $regsub;
+                                                    break;
+                                                case 'TK1':
+                                                    $regsub = $positional_fee + 58500000;
+                                                    $PKP = $annual_gross_income - $regsub;
+                                                    break;
+                                                case 'TK2':
+                                                    $regsub = $positional_fee + 63000000;
+                                                    $PKP = $annual_gross_income - $regsub;
+                                                    break;
+                                                case 'TK3':
+                                                    $regsub = $positional_fee + 67500000;
+                                                    $PKP = $annual_gross_income - $regsub;
+                                                    break;
+                                                case 'K0':
+                                                    $regsub = $positional_fee + 58500000;
+                                                    $PKP = $annual_gross_income - $regsub;
+                                                    break;
+                                                case 'K1':
+                                                    $regsub = $positional_fee + 63000000;
+                                                    $PKP = $annual_gross_income - $regsub;
+                                                    break;
+                                                case 'K2':
+                                                    $regsub = $positional_fee + 67500000;
+                                                    $PKP = $annual_gross_income - $regsub;
+                                                    break;
+                                                case 'K3':
+                                                    $regsub = $positional_fee + 72000000;
+                                                    $PKP = $annual_gross_income - $regsub;
+                                                    break;
+                                                default:
+                                                    echo "not detected";
+                                                    break;
+                                            }
+    
+    
+                                            if($PKP <= 60000000){
+                                                $atax = $PKP * 0.05;
+                                                }
+                                            elseif($PKP<=250000000){
+                                                $atax = 0.05 * 60000000 + ($PKP - 60000000) * 0.15;
+                                                }
+                                            elseif($PKP<=500000000){
+                                                $atax = 0.05 * 60000000 + (250000000 - 60000000)* 0.15 + ($PKP - 250000000) * 0.25;
+                                                }
+                                            elseif($PKP<=5000000000){
+                                                $atax = 0.05*60000000+(250000000-600000000)*0.15+(500000000-250000000)*0.25 + ($PKP-500000000) *0.3;
+                                                }
+                                            else{
+                                                $atax = 0.05*60000000+(250000000-600000000)*0.15+(500000000-250000000)*0.25 + ($PKP-500000000) *0.3 + ($PKP - 5000000000)*0.35;
+                                            }
+                                            $ftax = 0;
+                                            $mtax = $atax/12;
+                                            $npwp = $value->npwp;
+                                            if($npwp == "0"){
+                                                $ftax = (0.2 * $mtax) + $mtax;
+                                            } else{
+                                                ($mtax);
+                                            } 
+              $sum+= $ftax + $mtax;
+            }
+            echo "Rp ";
+            echo number_format($sum);
+            ?>
         </div>
       </div>
     </div>
   </div>                  
 </div>
-<div class="row">
-  <div class="col-lg-8 col-md-12 col-12 col-sm-12">
-    <div class="card">
-      <div class="card-header">
-        <h4>Statistics</h4>
-        <div class="card-header-action">
-          <div class="btn-group">
-            <a href="#" class="btn btn-primary">Week</a>
-            <a href="#" class="btn">Month</a>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <canvas id="myChart" height="182"></canvas>
-        <div class="statistic-details mt-sm-4">
-          <div class="statistic-details-item">
-            <span class="text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span> 7%</span>
-            <div class="detail-value">$243</div>
-            <div class="detail-name">Today's Sales</div>
-          </div>
-          <div class="statistic-details-item">
-            <span class="text-muted"><span class="text-danger"><i class="fas fa-caret-down"></i></span> 23%</span>
-            <div class="detail-value">$2,902</div>
-            <div class="detail-name">This Week's Sales</div>
-          </div>
-          <div class="statistic-details-item">
-            <span class="text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span>9%</span>
-            <div class="detail-value">$12,821</div>
-            <div class="detail-name">This Month's Sales</div>
-          </div>
-          <div class="statistic-details-item">
-            <span class="text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span> 19%</span>
-            <div class="detail-value">$92,142</div>
-            <div class="detail-name">This Year's Sales</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-12 col-12 col-sm-12">
-    <div class="card">
-      <div class="card-header">
-        <h4>Recent Activities</h4>
-      </div>
-      <div class="card-body">             
-        <ul class="list-unstyled list-unstyled-border">
-          <li class="media">
-            <img class="mr-3 rounded-circle" width="50" src="assets/img/avatar/avatar-1.png" alt="avatar">
-            <div class="media-body">
-              <div class="float-right text-primary">Now</div>
-              <div class="media-title">Farhan A Mujib</div>
-              <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
-            </div>
-          </li>
-          <li class="media">
-            <img class="mr-3 rounded-circle" width="50" src="assets/img/avatar/avatar-2.png" alt="avatar">
-            <div class="media-body">
-              <div class="float-right">12m</div>
-              <div class="media-title">Ujang Maman</div>
-              <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
-            </div>
-          </li>
-          <li class="media">
-            <img class="mr-3 rounded-circle" width="50" src="assets/img/avatar/avatar-3.png" alt="avatar">
-            <div class="media-body">
-              <div class="float-right">17m</div>
-              <div class="media-title">Rizal Fakhri</div>
-              <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
-            </div>
-          </li>
-          <li class="media">
-            <img class="mr-3 rounded-circle" width="50" src="assets/img/avatar/avatar-4.png" alt="avatar">
-            <div class="media-body">
-              <div class="float-right">21m</div>
-              <div class="media-title">Alfa Zulkarnain</div>
-              <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
-            </div>
-          </li>
-        </ul>
-        <div class="text-center pt-1 pb-1">
-          <a href="#" class="btn btn-primary btn-lg btn-round">
-            View All
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+
 @endsection
