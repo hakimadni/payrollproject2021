@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\Deduction;
+use App\Models\EmpoloyeeDeduction;
 
 class DeductionController extends Controller
 {
@@ -38,7 +39,7 @@ class DeductionController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-    		'nama' => 'required',
+    		'nama' => ['required', 'unique:Deductions'],
             'value' => 'required'
     	]);
  
@@ -83,7 +84,7 @@ class DeductionController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama' => 'required',
+            'nama' => ['required', 'unique:Deductions'],
     		'value' => 'required'
         ]);
 
@@ -103,6 +104,11 @@ class DeductionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $EmployeeDeduction = EmployeeDeduction::where('deduction_id',$id);
+        $EmployeeDeduction->delete();
+
+        $deduction = Deduction::findorfail($id);
+        $deduction->delete();
+        return redirect('/deduction');
     }
 }

@@ -20,6 +20,11 @@ Add Allowance
                 <div class="invalid-feedback">
                   Please fill in your allowance name
                 </div>
+                @error('nama')
+                      <div class="alert alert-danger">
+                        {{ $message }}
+                      </div>
+                  @enderror
               </div>
               <div class="form-group">
                 <label for="value">Allowance Value</label>

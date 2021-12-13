@@ -38,7 +38,7 @@ class FamilyStatusController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-    		'nama' => 'required',
+    		'nama' => ['required','unique:family_status'],
             'deskripsi' => 'required',
             'value' => 'required'
     	]);
@@ -85,13 +85,11 @@ class FamilyStatusController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama' => 'required',
             'deskripsi' => 'required',
     		'value' => 'required'
         ]);
 
         $FamilyStatus = [
-            'nama' => $request->nama,
             'deskripsi' => $request->deskripsi,
             'value' => $request->value,
         ];

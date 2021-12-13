@@ -17,11 +17,16 @@
               @method('put')
               <div class="form-group">
                 <label for="name">Position Name</label>
-                <input id="name" type="text" class="form-control" name="nama" tabindex="1" value="{{$position->nama}}" required autofocus value="">
+                <input id="name" type="text" class="form-control" name="nama" tabindex="1" value="{{$position->nama}}" required autofocus disabled>
                 <div class="invalid-feedback">
                   Please fill in your position name
                 </div>
               </div>
+              @error('nama')
+                      <div class="alert alert-danger">
+                       {{ $message }}
+                      </div>
+                  @enderror
               <div class="form-group">
                 <label for="value">Position Value</label>
                 <input id="value" type="number" class="form-control" name="value" tabindex="1" value="{{$position->value}}" required autofocus>
@@ -32,7 +37,7 @@
 
               <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-lg btn-block " tabindex="4">
-                  Add
+                  Update
                 </button>
               </div>
             </form>

@@ -49,7 +49,6 @@
                             <tr>
                               <th>Allowance Name</th>
                               <th>Value</th>
-                              <th>Action</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -57,13 +56,6 @@
                                     <tr>
                                         <td>{{$value->allowance->nama}}</td>
                                         <td>Rp. <?= number_format($value->allowance->value)?></td>
-                                        <td>
-                                          <form action="/eallowance/{{$value->id}}" method="post">
-                                            @csrf
-                                            @method('delete')
-                                            <input type="submit" value="Delete" class="btn btn-danger">
-                                          </form>
-                                        </td>
                                     </tr>
                                 @empty
                                     <tr colspan="3">
@@ -86,7 +78,6 @@
                                 <tr>
                                   <th>Deduction Name</th>
                                   <th>Value</th>
-                                  <th>Action</th>
                                 </tr>
                               </thead>
                               <tbody>                                 
@@ -95,13 +86,6 @@
                                         <tr>
                                             <td>{{$value->deduction->nama}}</td>
                                             <td>Rp. <?= number_format($value->deduction->value)?></td>
-                                            <td>
-                                              <form action="/ededuction/{{$value->id}}" method="post">
-                                                @csrf
-                                                @method('delete')
-                                                <input type="submit" value="Delete" class="btn btn-danger">
-                                            </form>
-                                            </td>
                                         </tr>
                                     @empty
                                         <tr colspan="3">

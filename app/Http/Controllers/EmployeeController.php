@@ -49,12 +49,22 @@ class EmployeeController extends Controller
     {
         $this->validate($request,[
     		'nama' => 'required',
-            'no_ktp' => ['required', 'min:16', 'max:16'],
-    		'npwp' => ['required', 'min:15', 'max:15'],
+            'no_ktp' => ['required', 'min:16', 'max:16','unique:employees'],
+    		'npwp' => 'required',
     		'foto_profil' => 'mimes:jpeg,jpg,png|max:5500',
     		'position_id' => 'required',
     		'family_status_id' => 'required'
     	]);
+
+        if ($request->npwp != '0') {
+            $request->validate([
+                'npwp' => ['min:15', 'max:15','unique:employees']
+            ]);
+        }else {
+            $request->validate([
+                'npwp' => ['min:1', 'max:1']
+            ]);
+        }
 
         $foto_profil = $request->foto_profil;
         $new_foto_profil = time() . ' - ' . $foto_profil->getClientOriginalName();
@@ -153,8 +163,16 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
+
+        $EmployeeAllowance = EmployeeAllowance::where('employee_id',$id);
+        $EmployeeAllowance->delete();
+
+        $EmployeeDeduction = EmployeeDeduction::where('employee_id',$id);
+        $EmployeeDeduction->delete();
+        
         $employee = employee::findorfail($id);
         $employee->delete();
+
 
         $path = "img/";
         File::delete($path . $employee->foto_profil);

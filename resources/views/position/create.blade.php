@@ -21,6 +21,11 @@
                   Please fill in your position name
                 </div>
               </div>
+              @error('nama')
+                      <div class="alert alert-danger">
+                       {{ $message }}
+                      </div>
+                  @enderror
               <div class="form-group">
                 <label for="value">Position Value (Only Position Salary)</label>
                 <input id="value" type="number" class="form-control" name="value" tabindex="1" required autofocus>

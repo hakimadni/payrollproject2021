@@ -22,6 +22,11 @@
                   Please fill in your allowance name
                 </div>
               </div>
+              @error('nama')
+                      <div class="alert alert-danger">
+                        {{ $message }}
+                      </div>
+                  @enderror
               <div class="form-group">
                 <label for="value">Allowance Value</label>
                 <input id="value" type="number" class="form-control" name="value" value="{{$allowance->value}}" tabindex="1" required autofocus>

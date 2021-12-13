@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\Allowance;
+use App\Models\EmployeeAllowance;
 
 class AllowanceController extends Controller
 {
@@ -38,7 +39,7 @@ class AllowanceController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-    		'nama' => 'required',
+    		'nama' => ['required', 'unique:Allowances'],
             'value' => 'required'
     	]);
  
@@ -83,7 +84,7 @@ class AllowanceController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama' => 'required',
+            'nama' => ['required', 'unique:Allowances'],
     		'value' => 'required'
         ]);
 
@@ -103,6 +104,10 @@ class AllowanceController extends Controller
      */
     public function destroy($id)
     {
+
+        $EmployeeAllowance = EmployeeAllowance::where('allowance_id',$id);
+        $EmployeeAllowance->delete();
+
         $allowance = Allowance::findorfail($id);
         $allowance->delete();
         return redirect('/allowance');

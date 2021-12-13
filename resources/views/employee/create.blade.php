@@ -20,7 +20,7 @@
                   <input type="number" class="form-control" id="inputEmail" placeholder="Input No.KTP" name="no_ktp">
                   @error('no_ktp')
                       <div class="alert alert-danger">
-                        <br>  {{ $message }}
+                        {{ $message }}
                       </div>
                   @enderror
                 </div>
@@ -42,11 +42,6 @@
                 <div class="form-group col-md-6">
                   <label for="poster">Foto Profil</label><br>
                   <input type="file" name="foto_profil" id="body">
-                  @error('foto_profil')
-                      <div class="alert alert-danger">
-                          {{ $message }}
-                      </div>
-                  @enderror
                 </div>
               </div>
               <div class="form-row">
@@ -58,6 +53,13 @@
                             <option value="{{$item->id}}">{{$item->nama}}</option>
                         @endforeach
                     </select>
+                </div>
+                <div class="form-group col-md-6">
+                @error('foto_profil')
+                      <div class="alert alert-danger mt-4">
+                          {{ $message }}
+                      </div>
+                  @enderror
                 </div>
               </div>
 
@@ -88,7 +90,7 @@
                     
                     @error('npwp')
                       <div class="alert alert-danger">
-                        <br>  {{ $message }}
+                         {{ $message }}
                       </div>
                   @enderror
                   </div>

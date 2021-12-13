@@ -38,7 +38,7 @@ class PositionController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-    		'nama' => 'required',
+    		'nama' => ['required', 'unique:Positions'],
             'value' => 'required'
     	]);
  
@@ -83,12 +83,10 @@ class PositionController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama' => 'required',
     		'value' => 'required'
         ]);
 
         $position = [
-            'nama' => $request->nama,
             'value' => $request->value,
         ];
         Position::whereId($id)->update($position);

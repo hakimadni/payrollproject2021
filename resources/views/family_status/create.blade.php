@@ -21,6 +21,11 @@
                   Please fill in your Family Status name
                 </div>
               </div>
+              @error('nama')
+                      <div class="alert alert-danger">
+                        {{ $message }}
+                      </div>
+                  @enderror
               <div class="form-group">
                 <label for="deskripsi">Family Status Description</label>
                 <textarea name="deskripsi" id="deskripsi" cols="30" rows="10" class="form-control" name="deskripsi" tabindex="1" required autofocus></textarea>
