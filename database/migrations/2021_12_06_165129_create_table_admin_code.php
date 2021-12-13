@@ -14,11 +14,14 @@ class CreateTableAdminCode extends Migration
     public function up()
     {
         Schema::create('admin_code', function (Blueprint $table) {
-            $table->string('code', 6);
+            $table->id();
+            $table->string('code', 12);
+            $table->timestamps();
         });
 
         DB::table('admin_code')->insert(
             array(
+                'id' => '1',
                 'code' => '123123'
             ));
     }

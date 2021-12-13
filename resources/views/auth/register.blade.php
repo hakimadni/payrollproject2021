@@ -67,22 +67,19 @@
                     <div class="form-group">
                         <label for="admincode">Admin Code</label>
                         <input id="admincode" type="text" class="form-control shadow-light" name="admin_code">
-                        <div class="invalid-feedback">
-                        </div>
+                        @if (\Session::has('adcode'))
+                        <br>
+                            <div class="alert alert-danger">
+                                {!! \Session::get('adcode') !!}
+                            </div>
+                        @endif
                       </div>
 
                     <div class="form-group">
                       <button type="submit" id="submit" class="btn btn-primary btn-lg btn-block">
                         {{ __('Register') }}
                       </button>
-                      <script>
-                        var code= $code;
-                      if (code < 18) {
-                        $("#submit").removeAttr("disabled");
-                      } else {
-                        $("#submit").attr("disabled", true);
-                      }
-                      </script>
+                      
                     </div>
                   </form>
                 </div>

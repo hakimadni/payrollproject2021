@@ -44,9 +44,9 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'admin_code' => ['required']
         ]);
+        
         $codereq = $request->admin_code;
-
-        if ($codereq == $code) {
+        if ($code->code == $codereq) {
             
             $user = User::create([
                 'name' => $request->name,
@@ -59,7 +59,8 @@ class RegisteredUserController extends Controller
 
             return redirect(RouteServiceProvider::HOME);
         }else{
-            return back();
+            
+            return back()->with('adcode', 'Admin Code Invalid');
         }
     }
 }

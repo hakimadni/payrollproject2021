@@ -19,6 +19,7 @@ Route::get('/', 'SummaryController@index');
 
 route::group(['middleware' => ['auth']], function () {
     Route::resources([
+        'admin-menu' => AdminController::class,
         'employee' => EmployeeController::class,
         'family_status' => FamilyStatusController::class,
         'allowance' => AllowanceController::class,

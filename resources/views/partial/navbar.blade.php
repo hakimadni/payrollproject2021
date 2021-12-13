@@ -95,7 +95,7 @@
                   </li>
                   <li class="dropdown">
                     <a href="#" class="nav-link has-dropdown">
-                      <i class="fas fa-wallet"></i>
+                      <i class="fas fa-table"></i>
                       <span>Payroll Component</span>
                     </a>
                     <ul class="dropdown-menu">
@@ -129,7 +129,8 @@
             
                 <div class="p-3 hide-sidebar-mini">
                   <a href="/admin-menu" class="btn btn-primary btn-lg btn-block btn-icon-split align-bottom">
-                    <i class="fas fa-rocket"></i> Admin Menu
+                    <i class="fas fa-rocket"></i>
+                    Admin Code
                   </a>
                 </div>
 

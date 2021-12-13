@@ -30,10 +30,12 @@
   <script src="{{asset('modules/datatables/datatables.min.js')}}"></script>
   <script src="{{asset('modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js')}}"></script>
   <script src="{{asset('modules/datatables/Select-1.2.4/js/dataTables.select.min.js')}}"></script>
+  <script src="{{asset('modules/izitoast/js/iziToast.min.js')}}"></script>
 
   <!-- Page Specific JS File -->
   <script src="{{asset('js/page/index-0.js')}}"></script>
   <script src="{{asset('js/page/modules-datatables.js')}}"></script>
+  <script src="{{asset('js/page/modules-toastr.js')}}"></script>
   
   <!-- Template JS File -->
   <script src="{{asset('js/scripts.js')}}"></script>

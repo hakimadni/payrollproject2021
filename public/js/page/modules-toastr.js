@@ -16,11 +16,11 @@ $("#toastr-2").click(function() {
   });
 });
 
-$("#toastr-3").click(function() {
-  iziToast.warning({
-    title: 'Hello, world!',
-    message: 'This awesome plugin is made by iziToast',
-    position: 'topRight'
+$("#toastr-3") {
+  iziToast.error({
+    title: 'Admin Code Invalid',
+    message: 'Please Contact Authorized Admin',
+    position: 'topCenter'
   });
 });
 
@@ -28,7 +28,7 @@ $("#toastr-4").click(function() {
   iziToast.error({
     title: 'Hello, world!',
     message: 'This awesome plugin is made by iziToast',
-    position: 'topRight'
+    position: 'topCenter'
   });
 });
 
