@@ -23,32 +23,15 @@
                   </th>
                   <th>Name</th>
                   <th>Value</th>
-                  <th>Members</th>
                   <th>Actions</th>
                 </tr>
               </thead>
-              <tbody>                                 
-                <!-- <tr>
-                  <td class="text-center">
-                    1
-                  </td>
-                  <td>Create a mobile app</td>
-                  <td>
-                    Rp. 500.000
-                  </td>
-                  <td>
-                    Mamang Kesbor, KimKim, Putra
-                  </td>
-                  <td>
-                    <a href="#" class="btn btn-primary">Edit</a>
-                  </td>
-                </tr> -->
+              <tbody>
                 @forelse ($allowance as $key=>$value)
                     <tr>
                         <td class="text-center">{{$value->id}}</td>
                         <td>{{$value->nama}}</td>
                         <td>Rp<?php echo number_format ($value->value) ?></td>
-                        <td></td>
                         <td>
                           <a href="/allowance/{{$value->id}}/edit" class="btn btn-warning m-2">Edit</a>
                           <form action="/allowance/{{$value->id}}" method="post">

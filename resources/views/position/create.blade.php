@@ -22,7 +22,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="value">Position Value</label>
+                <label for="value">Position Value (Only Position Salary)</label>
                 <input id="value" type="number" class="form-control" name="value" tabindex="1" required autofocus>
                 <div class="invalid-feedback">
                   Please fill in your position value

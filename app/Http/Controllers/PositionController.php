@@ -44,7 +44,7 @@ class PositionController extends Controller
  
         Position::create([
     		'nama' => $request->nama,
-            'value' => $request->value
+            'value' => 4400000 + $request->value
     	]);
  
     	return redirect('/position');

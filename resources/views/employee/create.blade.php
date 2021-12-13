@@ -18,6 +18,11 @@
                 <div class="form-group col-md-6">
                   <label for="inputEmail4">No.KTP (16 Digits)</label>
                   <input type="number" class="form-control" id="inputEmail" placeholder="Input No.KTP" name="no_ktp">
+                  @error('no_ktp')
+                      <div class="alert alert-danger">
+                        <br>  {{ $message }}
+                      </div>
+                  @enderror
                 </div>
                 <div class="form-group col-md-6">
                     <label>Family Status</label>
@@ -37,7 +42,7 @@
                 <div class="form-group col-md-6">
                   <label for="poster">Foto Profil</label><br>
                   <input type="file" name="foto_profil" id="body">
-                  @error('poster')
+                  @error('foto_profil')
                       <div class="alert alert-danger">
                           {{ $message }}
                       </div>
@@ -81,6 +86,11 @@
                       Without NPWP
                     </label>
                     
+                    @error('npwp')
+                      <div class="alert alert-danger">
+                        <br>  {{ $message }}
+                      </div>
+                  @enderror
                   </div>
                 </div>
               </div>

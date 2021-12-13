@@ -80,22 +80,6 @@
                   
                 <div class="card mt-5">
                         <div class="details1 m-5" style="display:none">
-                          <form action="/ededuction" method="POST">
-                            @csrf
-                            <div class="form-group">
-                                <input type="hidden" name="employee_id" value="{{$employee->id}}">
-                                <div class="form-group">
-                                <label>Add Deduction</label>
-                                <select name="deduction_id" class="form-control">
-                                  <option disabled selected>Select Deduction</option>
-                                    @foreach ($deduction as $item)
-                                    <option value="{{$item->id}}">{{$item->nama}}</option>
-                                @endforeach
-                                </select>
-                              </div>
-                              <button type="submit" class="btn btn-primary btn-lg mb-1">
-                                Add Deduction
-                              </button>
                         </form>
                             <table class="table table-striped">
                               <thead>                                 

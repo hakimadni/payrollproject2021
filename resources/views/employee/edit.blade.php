@@ -105,7 +105,7 @@
                               </button>
                         </form>
                         
-                        <table class="table table-striped">
+                        <table class="table table-striped mt-3">
                           <thead>                                 
                             <tr>
                               <th>Allowance Name</th>
@@ -158,7 +158,7 @@
                                 Add Deduction
                               </button>
                         </form>
-                            <table class="table table-striped">
+                            <table class="table table-striped mt-3">
                               <thead>                                 
                                 <tr>
                                   <th>Deduction Name</th>

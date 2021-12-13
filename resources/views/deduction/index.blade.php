@@ -23,7 +23,6 @@
                   </th>
                   <th>Name</th>
                   <th>Value</th>
-                  <th>Members</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -33,7 +32,6 @@
                         <td class="text-center">{{$value->id}}</td>
                         <td>{{$value->nama}}</td>
                         <td>Rp<?php echo number_format ($value->value) ?></td>
-                        <td></td>
                         <td>
                           <a href="/deduction/{{$value->id}}/edit" class="btn btn-warning m-2">Edit</a>
                           <form action="/deduction/{{$value->id}}" method="post">

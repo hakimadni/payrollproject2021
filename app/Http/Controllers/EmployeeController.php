@@ -49,9 +49,9 @@ class EmployeeController extends Controller
     {
         $this->validate($request,[
     		'nama' => 'required',
-            'no_ktp' => 'required',
-    		'npwp' => 'required',
-    		'foto_profil' => 'mimes:jpeg,jpg,png|max:2200',
+            'no_ktp' => ['required', 'min:16', 'max:16'],
+    		'npwp' => ['required', 'min:15', 'max:15'],
+    		'foto_profil' => 'mimes:jpeg,jpg,png|max:5500',
     		'position_id' => 'required',
     		'family_status_id' => 'required'
     	]);
@@ -83,7 +83,8 @@ class EmployeeController extends Controller
     {
         $employee = Employee::find($id);
         $has_allowance = EmployeeAllowance::all();
-        return view('employee/show', compact('employee','has_allowance'));
+        $has_deduction = EmployeeDeduction::all();
+        return view('employee/show', compact('employee','has_allowance','has_deduction'));
     }
 
     /**
@@ -156,7 +157,7 @@ class EmployeeController extends Controller
         $employee->delete();
 
         $path = "img/";
-        File::delete($path . $film->foto_profil);
+        File::delete($path . $employee->foto_profil);
 
         return redirect('/employee');
     }
