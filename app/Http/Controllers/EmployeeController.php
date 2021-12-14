@@ -92,8 +92,8 @@ class EmployeeController extends Controller
     public function show($id)
     {
         $employee = Employee::find($id);
-        $has_allowance = EmployeeAllowance::all();
-        $has_deduction = EmployeeDeduction::all();
+        $has_allowance = EmployeeAllowance::where('employee_id', $id)->get();
+        $has_deduction = EmployeeDeduction::where('employee_id', $id)->get();
         return view('employee/show', compact('employee','has_allowance','has_deduction'));
     }
 

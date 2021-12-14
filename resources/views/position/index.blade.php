@@ -23,7 +23,6 @@
                   </th>
                   <th>Name</th>
                   <th>Value</th>
-                  <th>Members</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -49,14 +48,19 @@
                         <td class="text-center">{{$value->id}}</td>
                         <td>{{$value->nama}}</td>
                         <td>Rp<?php echo number_format ($value->value) ?></td>
-                        <td></td> 
                         <td>
                           <a href="/position/{{$value->id}}/edit" class="btn btn-warning m-2">Edit</a>
+                          @if (count($employee->where('position_id', $value->id)) > 0)
+                              
+                              <input value="Position Taken" disabled class="btn btn-danger">
+                          @else
                           <form action="/position/{{$value->id}}" method="post">
                             @csrf
                             @method('delete')
                             <input type="submit" value="Delete" class="btn btn-danger">
                           </form>
+                          @endif
+                          
                         </td>
                     </tr>
                 @empty

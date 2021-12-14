@@ -36,11 +36,15 @@
                         <td></td>
                         <td>
                           <a href="/family_status/{{$value->id}}/edit" class="btn btn-warning m-2">Edit</a>
+                          @if (count($employee->where('family_status_id', $value->id)) > 0)
+                              <input value="Position Taken" disabled class="btn btn-danger">
+                          @else
                           <form action="/family_status/{{$value->id}}" method="post">
                             @csrf
                             @method('delete')
                             <input type="submit" value="Delete" class="btn btn-danger">
                           </form>
+                          @endif
                         </td>
                     </tr>
                 @empty

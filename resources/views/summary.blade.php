@@ -590,6 +590,28 @@
       </div>
     </div>
   </div>
+
+  <div class="col-lg-12 col-md-12 col-12 col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <h4>Latest Employee</h4>
+      </div>
+      <div class="card-body">             
+        <ul class="list-unstyled list-unstyled-border">
+          @foreach ($last5 as $item)
+          <li class="media">
+            <img class="mr-3 rounded-circle" style="object-fit: cover" width="50" height="50" src="{{asset('foto/' . $item->foto_profil )}}" alt="avatar">
+            <div class="media-body">
+              <div class="float-right text-primary">New</div>
+              <div class="media-title">{{$item->nama}}</div>
+              <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
+            </div>
+          </li>
+          @endforeach
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 

@@ -20,6 +20,7 @@ class SummaryController extends Controller
     public function index()
     {
         $payroll = Employee::withSum('Allowance', 'value')->withSum('Deduction', 'value')->get();
+        $last5 = Employee::latest()->take(5)->get();
         $paylast30 = Employee::withSum('Allowance', 'value')->withSum('Deduction', 'value')->where('created_at', '>', now()->subDays(30)->endOfDay())->get();
         // dd($payroll);
         $allowlast30 = Employee::withSum('Allowance', 'value')->where('created_at', '>', now()->subDays(30)->endOfDay())->get();
@@ -28,7 +29,7 @@ class SummaryController extends Controller
         $deduction = Deduction::all();
         $employee = Employee::all();
         $position = Position::all();
-        return view('summary', compact('payroll','allowance', 'deduction', 'employee', 'position', 'allowlast30', 'deductlast30', 'paylast30'));
+        return view('summary', compact('payroll','allowance', 'deduction', 'employee', 'position', 'allowlast30', 'deductlast30', 'paylast30', 'last5'));
     }
 
     

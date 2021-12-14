@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Models\Employee;
 use App\Models\Position;
 
 class PositionController extends Controller
@@ -16,7 +17,8 @@ class PositionController extends Controller
     public function index()
     {  
         $position = Position::all();
-        return view('position/index', compact('position'));
+        $employee = Employee::all();
+        return view('position/index', compact('position','employee'));
     }
 
     /**
@@ -101,6 +103,8 @@ class PositionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $position = Position::findorfail($id);
+        $position->delete();
+        return redirect('/position');
     }
 }

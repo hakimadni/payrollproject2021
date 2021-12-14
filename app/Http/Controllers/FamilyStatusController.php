@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Models\Employee;
 use App\Models\FamilyStatus;
 
 class FamilyStatusController extends Controller
@@ -16,7 +17,8 @@ class FamilyStatusController extends Controller
     public function index()
     {
         $FamilyStatus = FamilyStatus::all();
-        return view('family_status/index', compact('FamilyStatus'));
+        $employee = Employee::all();
+        return view('family_status/index', compact('FamilyStatus','employee'));
     }
 
     /**
