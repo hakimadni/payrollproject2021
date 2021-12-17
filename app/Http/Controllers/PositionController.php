@@ -89,7 +89,7 @@ class PositionController extends Controller
         ]);
 
         $position = [
-            'value' => $request->value,
+            'value' => 4400000 + $request->value,
         ];
         Position::whereId($id)->update($position);
         return redirect('/position');

@@ -22,7 +22,8 @@
                     ID
                   </th>
                   <th>Name</th>
-                  <th>Value</th>
+                  <th>Total Value</th>
+                  <th>Position Value</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -48,6 +49,7 @@
                         <td class="text-center">{{$value->id}}</td>
                         <td>{{$value->nama}}</td>
                         <td>Rp<?php echo number_format ($value->value) ?></td>
+                        <td>Rp<?php echo number_format ($value->value - 4400000) ?></td>
                         <td>
                           <a href="/position/{{$value->id}}/edit" class="btn btn-warning m-2">Edit</a>
                           @if (count($employee->where('position_id', $value->id)) > 0)

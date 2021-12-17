@@ -29,7 +29,7 @@
                   @enderror
               <div class="form-group">
                 <label for="value">Position Value</label>
-                <input id="value" type="number" class="form-control" name="value" tabindex="1" value="{{$position->value}}" required autofocus>
+                <input id="value" type="number" class="form-control" name="value" tabindex="1" value="{{($position->value) - 4400000}}" required autofocus>
                 <div class="invalid-feedback">
                   Please fill in your position value
                 </div>

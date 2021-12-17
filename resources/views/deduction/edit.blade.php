@@ -17,7 +17,7 @@
               @method('put')
               <div class="form-group">
                 <label for="name">Deduction Name</label>
-                <input id="name" type="text" class="form-control" name="nama" tabindex="1" value="{{$deduction->nama}}" required autofocus>
+                <input id="name" type="text" class="form-control" name="nama" tabindex="1" value="{{$deduction->nama}}" required autofocus disabled>
                 <div class="invalid-feedback">
                   Please fill in your deduction name
                 </div>

@@ -84,12 +84,10 @@ class DeductionController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama' => ['required', 'unique:Deductions'],
     		'value' => 'required'
         ]);
 
         $deduction = [
-            'nama' => $request->nama,
             'value' => $request->value,
         ];
         Deduction::whereId($id)->update($deduction);
