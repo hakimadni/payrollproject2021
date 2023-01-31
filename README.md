@@ -13,7 +13,8 @@ Follow the steps below for setup the project
 - NodeJS
 - XAMPP
 - Git
--VS Code
+- VS Code
+
 --Steps
 
 - Install All the Tools I Mentioned
