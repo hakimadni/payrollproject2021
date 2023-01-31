@@ -1,5 +1,5 @@
 
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/hakimadni/payrollproject2021/main/public/img/Group%2015%20(6).png" width="400"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/hakimadni/payrollproject2021/main/public/img/Group%2015%20(6).png" width="200"></a></p>
 
 ## About KIM Payrollproject2021
 
