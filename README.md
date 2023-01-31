@@ -33,6 +33,7 @@ Follow the steps below for setup the project
 
 Taxes based on the Family Status Fillings make sure fill Family Status as below
 If there is something new/update you must adapting the algorithm inside the frontend.
+
 **Status lajang**
 
 -   TK0 ini berarti seorang laki-laki atau perempuan yang belum menikah dan mereka tidak memiliki tanggungan.
