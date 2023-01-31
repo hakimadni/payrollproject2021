@@ -21,7 +21,7 @@ Follow the steps below for setup the project
 - Git Pull/Clone Project
 - Open Git Bash on the project folder
 - Composer Update
-- Change the env.example
+- Change the env.example into .env
 - Fill in the DB_Database inside .env file
 - inside the gitbash Php artisan serve
 - Click migrate on the screen or Type Php artisan migrate inside the Gitbash
